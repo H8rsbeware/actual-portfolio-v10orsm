@@ -1,0 +1,109 @@
+/* -- UNIVERSAL STYLING -- */
+
+:root {
+    --white: #EEE;
+    --disabled: #999;
+    --shadowinverse:#abf570;
+    --inverse: #c6fa9d;
+    --blue: #4c5270;
+    --shadowBlue: #343952;
+}
+
+/* https://fonts.google.com/specimen/Assistant -- OPEN USE LICENSE*/
+@font-face {
+    font-family: "Assistant";
+    src: url("../other/Fonts/Assistant/Assistant-VariableFont_wght.ttf");
+}
+
+
+
+body {
+    background: var(--blue);
+    color: white;
+    font-family: "Assistant";
+    font-size: large;
+    letter-spacing: 0.8px;
+
+}
+
+
+
+/* nav */
+.navbar1{
+    background: var(--shadowBlue);
+}
+.nav-link{
+    color: var(--white) !important;
+}
+.nav-link:hover{
+    color: var(--disabled) !important;
+}
+.active{
+    color: var(--shadowinverse) !important;
+}
+.active:hover{
+    color: var(--shadowinverse) !important;
+    cursor: default;
+}
+.disabled{
+    color: var(--disabled) !important;
+}
+
+/* text colour classes */
+.title{
+    color:var(--inverse);
+    font-weight: 650;
+}
+.title-shadow{
+    color:var(--shadowinverse);
+    font-weight: 550;
+}
+
+.dropdown-menu{
+    background-color: var(--shadowBlue);
+    border-color: var(--white);
+}
+.dropdown-item{
+    color: var(--white);
+}
+.dropdown-divider{
+    border-color: var(--white);
+}
+
+/* -- HEADER TEXT -- */
+#head-about{
+    width:90%;
+    padding:8% 8%;
+    margin: 0 auto;
+}
+.head-title{
+    padding-bottom: 1%;
+    font-size: 45;
+}
+.head-text{
+    padding: -1% 0% 2% 0%;
+}
+
+/* -- DROPDOWN -- */
+
+/* button formatting */
+#drop-btn{
+    border-width: 1px;
+    border-color: var(--inverse);
+    color: var(--inverse);
+}
+/* button hover change */
+#drop-btn:hover{
+    border-color: var(--shadowinverse);
+    color: var(--shadowinverse);
+    border-style: dotted;
+}
+/* text box formatting */
+.dropBox{
+    width: 98%;
+    padding:3% 3%;
+    margin: 2% 0;
+    background-color: var(--shadowBlue);
+    box-shadow: 12px 6px var(--shadowinverse);
+    text-justify: distribute-all-lines;
+}

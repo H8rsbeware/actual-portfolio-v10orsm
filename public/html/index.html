@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Meta data-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oakley</title>
+    <!--Desktop computer emoji favicon, provided by Twemoji - Twitter (https://twemoji.twitter.com/), under the CC-BY-4.0 license (https://creativecommons.org/licenses/by/4.0/)-->
+    <link rel="icon" href="../other/favicon.ico">
+    <!--Bootstrap classes-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="../stylesheets/index.css" rel="stylesheet">
+    <script type="application/json" src="../other/projects.json"></script>
+    <!--Font awesome for social SVGs-->
+    <script src="https://kit.fontawesome.com/272018ad02.js" crossorigin="anonymous"></script>
+
+    <!-- ADDED META TAGS -->
+    <meta name="description" content="Software development porfolio">
+    <meta name="keywords" content="Software, Web development, Portfolio, Homepage">
+    <meta name="author" content="Oakley S">
+
+</head>
+
+
+
+
+
+<body>
+    <!--Nav bar, Contains 6 items, Reactive to screen size, Linked to other parts of the page rather than offpage-->
+    <section id="navigation" >
+        <nav class = "navbar sticky-top navbar-expand-md navbar1">
+            <div class="container-fluid" >
+                <!-- CAUSES ISSUES WITH SCREENREADERS <a class="navbar-brand" href="#"></a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarControl" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    
+                <div class="navbar-collapse collapse" id="navbarControl">
+                    <ul class="nav navbar-nav mx-4 mb-1 ">
+                        <li class="nav-item me-3">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./about.html">About</a>
+                        </li>
+                        <li class="nav-item me-3" >
+                            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item me-3" >
+                            <a class="nav-link" href="./projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./contacts.html">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./personal.html">Full page</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><a class="dropdown-item" href="./personal.html#r6s">Siege</a></li>
+                                <li><a class="dropdown-item" href="#">Snowboarding</a></li>
+                                <li><a class="dropdown-item" href="#">Dogs</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    </section>
+
+
+
+    <div class="mainPage">
+        <!--Container for animation, eye catching (hopefully)-->
+        <div class="siteColumn">
+            <section id="animation">
+                <div class="container-fluid">
+                    <div class="animDiv mx-auto col-lg-12">
+                        <h1 class="title ">Hi, Im Oakley</h1><br>
+                        <span class="typeAnim"><h2 class="noTextHighlight">A web-developer, and software engineer.</h2></span>
+                    </div>
+                </div>
+            </section> 
+            <!--Introduction to me, reactive, image on one side (or beneath) and text-->
+            <section id="intro">
+                <div class="introdiv row container-fluid">
+                    <div class="col-9 col-md-6 introText">
+                        <h3 class="title">A short introduction to me,</h3>
+                        <br>
+                        <p>
+                            Im a 19 year old student, studing computer science at Falmouth University. I love science, with a-levels in chemistry and biology (and computer science), but found a love 
+                            for programming throughout school, deciding to make it my career and pursue a "dream job" in the field. I spent most of my time learning about web 
+                            development, however I've also made apps in Node.js, python, and C#. I strive to learn new things, from random facts to game development, ill try my 
+                            hand at anything, as thats the only way to find what you're good at! <br />
+
+                            This website is a work in progress, but I hope you can look through the holes and see what im going for, thank you for checking out my site. - Oakley
+                        </p>
+                    </div>
+                    <div class="introImg col-3 col-md-2">
+                        <img src="https://placeholder.pics/svg/300">
+                    </div>
+                </div>
+            </section>
+            <hr />
+            <!--Project cards, randomly selected upon page load, reactive, link to different projects ive done in the past-->
+            <section class="project">
+                <div class="col-12 container-fluid"><h2 class="projectTitle title">Highlighted Projects</h2></div>
+                <div class="projectcards row container-fluid">
+                    <div class="card col-3 mx-auto" id="c0">
+                        <img id="c0i" src="https://placeholder.pics/svg/800/DEDEDE/555555/project%20card" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 id="c0h" class="title-shadow">card</h3>
+                            <p id="c0t" class="card-tags">[TAGS]</p>
+                            <hr>
+                            <p id="c0p" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Definitely not just random words to fill more space, Not really sure why someone would read this much jibberish</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card col-3 mx-auto" id="c1">
+                        <img id="c1i" src="https://placeholder.pics/svg/800/DEDEDE/555555/project%20card" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 id="c1h" class="title-shadow">card</h3>
+                            <p id="c1t" class="card-tags">[TAGS]</p>
+                            <hr>
+                            <p id="c1p" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Definitely not just random words to fill more space, Not really sure why someone would read this much jibberish</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card col-3 mx-auto" id="c2">
+                        <img id="c2i" src="https://placeholder.pics/svg/800/DEDEDE/555555/project%20card" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h3 id="c2h" class="title-shadow">card</h3>
+                            <p id="c2t" class="card-tags">[TAGS]</p>
+                            <hr>
+                            <p id="c2p" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Definitely not just random words to fill more space, Not really sure why someone would read this much jibberish</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardbtns row container-fluid">
+                    <span type="button" id="rand" class="col-4  btn btn-x1 btn-outline-light mx-auto">Randomise</span>
+                    <a type="button" class="col-4  btn btn-x1 btn-outline-light mx-auto" href="./projects.html">View all</a>
+                </div>
+            </section>
+            <hr />
+            <!--Emails and socials, ico as a nav bar connected to socials, email forum behind a button-->
+            <section id="contacts">
+                <div class="container-fluid">
+                    <div id="email">
+                        <h3 class="contactsText title col-12 container-fluid">Want to reach out?</h3>
+                        <div class="contactsContent row mx-auto">
+                            <a type="button" class="col-3  btn btn-x1 btn-outline-light contactsBtn" href="./contacts.html">Contact me</a>
+                            <div class="col-2"></div>
+                            <ul class="socials col-6 nav nav-pills nav-fill">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="https://github.com/H8rsbeware" data-toggle="tooltip" data-placement="top" title="Github"><i class=" ico fa-brands fa-github fa-3x"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="ico fa-brands fa-twitter fa-3x"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="not avaliable"><i class="ico fa-brands fa-discord fa-3x"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <br /> <br />
+            <hr />
+
+            <section id="personal">
+                <div class="container-fluid">
+                    <h3 class="personalTitle title col-12 container-fluid">What do I do in my free time?</h3>
+                    <div class="personalContent row mx-auto">
+                        
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="blogColumn" id="BlogColumn">
+
+        </div>
+    </div>
+    <section id="footer">
+        
+    </section>
+
+    <!--Jquery for Bootstrap CDN and personal code-->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <!--Script for generating and selecting cards-->
+    <script src="../scripts/cards.js" ></script>
+    <script src="../scripts/blog_bar.js"></script>
+
+    <!--Bootstrap CDN for website structure-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

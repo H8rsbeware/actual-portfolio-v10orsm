@@ -1,0 +1,302 @@
+/* -- UNIVERSAL STYLING -- */
+
+:root {
+    --white: #EEE;
+    --disabled: #999;
+    --shadowinverse:#abf570;
+    --inverse: #c6fa9d;
+    --blue: #4c5270;
+    --shadowBlue: #343952;
+    --borderBlue: #272b3f;
+}
+
+/* https://fonts.google.com/specimen/Assistant -- OPEN USE LICENSE*/
+@font-face {
+    font-family: "Assistant";
+    src: url("../other/Fonts/Assistant/Assistant-VariableFont_wght.ttf");
+}
+
+
+
+body {
+    background: var(--blue);
+    color: white;
+    font-family: "Assistant";
+    font-size: large;
+    letter-spacing: 0.8px;
+
+}
+
+hr {
+    padding: 2% 0 2% 0;
+}
+
+/* main page border */
+.mainPage{
+    display: grid;
+    grid-template-columns: 0.5rem 79% auto 20% 0.5rem;
+}
+.siteColumn{
+    grid-column: 2;
+}
+.blogColumn{
+    
+    grid-column: 4;
+    width: auto;
+    border-left: 3px solid var(--borderBlue);
+    background-color: var(--shadowBlue);
+}
+
+/* nav */
+.navbar1{
+    background: var(--shadowBlue);
+    border-bottom: 3px solid var(--borderBlue);
+}
+.nav-link{
+    color: var(--white) !important;
+}
+.nav-link:hover{
+    color: var(--disabled) !important;
+}
+.active{
+    color: var(--inverse) !important;
+}
+.active:hover{
+    color: var(--inverse) !important;
+    cursor: default;
+}
+.disabled{
+    color: var(--disabled) !important;
+}
+.dropdown-menu{
+    background-color: var(--shadowBlue);
+    border-color: var(--white);
+}
+.dropdown-item{
+    color: var(--white);
+}
+.dropdown-divider{
+    border-color: var(--white);
+}
+
+/* text colour classes */
+.title{
+    color:var(--inverse);
+    font-weight: 650;
+}
+.title-shadow{
+    color:var(--shadowinverse);
+    font-weight: 550;
+}
+
+/* -- ANIMATION -- */
+
+/* text style/ positioning */
+.animDiv {
+    text-align: left;
+    align-self: center;
+    max-width: 50%;
+    margin: 20% auto 20% auto;
+}
+/* subtext style and animation */
+.typeAnim{
+    display:inline-flex;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    max-width: 37rem;
+    padding-bottom: 1%;
+    margin: 0 auto;
+    border-right: 2px solid;
+    animation: type 1.5s steps(39, end) 0.2s forwards, cursor 1s infinite;
+}
+/* typing scroll and cursor blink */
+@keyframes type{
+    from{width: 0;}
+    to{width: 100%;}
+}
+@keyframes cursor{
+    0% {border-right-color: transparent;}
+    50% {border-right-color: white;}
+    100% {border-right-color: transparent;}
+}
+
+@media(min-width: 2561px){
+    .typeAnim{
+        max-width: 35rem;
+    }
+}
+
+@media(max-width: 1900px){
+    .typeAnim{
+        max-width: 40rem;
+    }
+
+}
+
+/* stops animation getting cut off */
+@media(max-width:1200px){
+    .animDiv{
+        max-width: 80%;
+    }
+}
+
+/* stops animation and some styling entirely on small screens */
+@media(max-width:640px){
+    .typeAnim{
+        text-align: left;
+        animation: none;
+        display: block;
+        width: 100%;
+        white-space: normal;
+        border: none;
+    }
+}
+
+/* -- ABOUT/INTRO -- */
+
+/* basic styling */
+.introImg {
+    
+    margin: 0 0 0 9%;
+}
+
+.introText {
+    margin-top: 2%;
+
+}
+
+.introdiv {
+    padding-left: 7%;
+    margin-bottom: 5%;
+}
+
+/* adjustments to make page look more even */
+@media(max-width:991px) {
+    .introImg {
+        margin: 7% 0 0 6%;
+    }
+
+    .introdiv {
+        padding-left: 8%;
+        margin-bottom: 5%;
+    }
+}
+/* removes image and expands text area on small screens */
+@media(max-width: 780px) {
+    .introImg{
+        display: none;
+    }
+    .introText{
+        width: 90%;
+    }
+}
+
+/* -- FEATURED PROJECTS -- */
+/* removes universal padding */
+.card hr{
+    padding:none;
+}
+/* card formatting */
+.card {
+    padding-top: 1%;
+    margin: 0 auto;
+    text-justify: distribute-all-lines;
+    background-color: var(--shadowBlue);
+    letter-spacing: normal;
+}
+/* tag font */
+.card-tags{
+    font-weight: 450;
+    font-size: large;
+    color: var(--white);
+}
+/* card stack on small screens */
+@media (max-width:1000px) {
+    .card {
+        width: 60%;
+        margin-bottom: 3%;
+
+    }
+
+    .cardbtns {
+        padding-left: 25%;
+    }
+}
+/* card container/text padding and centering */
+.projectcards {
+    padding: 5% 0 3% 0;
+    
+    
+}
+.project{
+    margin: inherit auto;
+    align-items: center;
+}
+
+.projectTitle {
+    text-align: center;
+}
+
+.cardbtns{
+    padding: 0 15% 2% 15%;
+    
+}
+
+/* -- CONTACTS -- */
+
+/* text padding */
+.contactsText {
+    margin: 1% auto;
+    padding-bottom: 2%;
+    text-align: center;
+}
+/* button formatting */
+.contactsBtn {
+    padding: 1% 0 1% 0;
+    font-weight: 600;
+    margin-left: 3%;
+    font-size: large;
+}
+/* content alignment */
+.contactsContent{
+    align-items: center;
+    width: 80%;
+    margin: 1% auto;
+
+}
+/* icon interaction */
+
+.ico {
+    color: var(--white)
+}
+
+.ico:hover {
+    color: var(--inverse);
+}
+
+.personalTitle{
+    margin: 1% auto;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+/* blog column things */
+.blogPreview{
+    width: 95%;
+    margin: 1px auto;
+    background-color: var(--blue);
+    padding: 1rem;
+}
+.blogPrevTitle{
+    font-size: large;
+    font-weight: 550;
+    color: var(--shadowinverse);
+}
+.blogPrevSynapse{
+    font-size: medium;
+}
+.blogPrevSynapseLink{
+    color: var(--shadowinverse);
+    text-decoration: underline;
+}

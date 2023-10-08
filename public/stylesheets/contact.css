@@ -1,0 +1,108 @@
+/* -- UNIVERSAL STYLING -- */
+
+:root {
+    --white: #EEE;
+    --disabled: #999;
+    --shadowinverse:#abf570;
+    --inverse: #c6fa9d;
+    --blue: #4c5270;
+    --shadowBlue: #343952;
+}
+
+/* https://fonts.google.com/specimen/Assistant -- OPEN USE LICENSE*/
+@font-face {
+    font-family: "Assistant";
+    src: url("../other/Fonts/Assistant/Assistant-VariableFont_wght.ttf");
+}
+
+
+
+body {
+    background: var(--blue);
+    color: white;
+    font-family: "Assistant";
+    font-size: large;
+    letter-spacing: 0.8px;
+
+}
+
+/* nav */
+.navbar1{
+    background: var(--shadowBlue);
+}
+.nav-link{
+    color: var(--white) !important;
+}
+.nav-link:hover{
+    color: var(--disabled) !important;
+}
+.active{
+    color: var(--shadowinverse) !important;
+}
+.active:hover{
+    color: var(--shadowinverse) !important;
+    cursor: default;
+}
+.disabled{
+    color: var(--disabled) !important;
+}
+.dropdown-menu{
+    background-color: var(--shadowBlue);
+    border-color: var(--white);
+}
+.dropdown-item{
+    color: var(--white);
+}
+.dropdown-divider{
+    border-color: var(--white);
+}
+
+/* text colour classes */
+.title{
+    color:var(--inverse);
+    font-weight: 650;
+}
+.title-shadow{
+    color:var(--shadowinverse);
+    font-weight: 550;
+}
+
+
+/* -- FORM -- */
+
+/* Container for form */
+#emailForm{
+    width:90%;
+    padding:8% 8%;
+    margin: 0 auto;
+}
+/* Header for form */
+.emailFormHead{
+    margin-left:-0.5%;
+    padding-bottom: 2%;
+}
+/* Button container */
+.emailFormSubmit{
+    padding-top: 1%;
+}
+
+
+/* button colour */
+.sendBtn{
+    border-color: var(--inverse);
+    background-color: var(--inverse);
+    color: var(--shadowBlue);
+    
+}
+/* button hover colour */
+.sendBtn:hover{
+    border-color: var(--shadowinverse);
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+
+.success{
+    font-size: 10rem;
+    font-weight:600;
+}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Meta data-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oakley / Personal</title>
+    <!--Desktop computer emoji favicon, provided by Twemoji - Twitter (https://twemoji.twitter.com/), under the CC-BY-4.0 license (https://creativecommons.org/licenses/by/4.0/)-->
+    <link rel="icon" href="../other/favicon.ico">
+
+    <!--Bootstrap classes-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   
+    <link href="../stylesheets/personal.css" rel="stylesheet">
+
+    <script src="../scripts/personal.js"></script>
+
+    <!--FOUND IN OPTIMISATION INVESTIGATION -->
+    <!--Font awesome for social SVGs--><!-- NOT REQUIRED FOR THIS FILE <script src="https://kit.fontawesome.com/272018ad02.js" crossorigin="anonymous"></script> -->
+    <!-- ADDED META TAGS -->
+    <meta name="description" content="Software development">
+    <meta name="keywords" content="Software, Web development, Portfolio, Personal">
+    <meta name="author" content="Oakley S">
+
+</head>
+<body>
+    <!--Nav bar, Contains 6 items, Reactive to screen size, Linked to other parts of the page rather than offpage-->
+    <section id="navigation">
+        <nav class = "navbar sticky-top navbar-expand-md navbar1">
+            <div class="container-fluid">
+                <!-- CAUSES ISSUES WITH SCREENREADERS <a class="navbar-brand" href="#"></a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarControl" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    
+                <div class="navbar-collapse collapse" id="navbarControl">
+                    <ul class="nav navbar-nav mx-4 mb-1 ">
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./about.html">About</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./contacts.html">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./personal.html">Full page</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><a class="dropdown-item" href="./personal.html#r6s">Siege</a></li>
+                                <li><a class="dropdown-item" href="#">Snowboarding</a></li>
+                                <li><a class="dropdown-item" href="#">Dogs</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+
+    <!--
+
+        Siege
+            Stats => api
+            Info
+            High rank
+            Etc
+            Clip gallery
+
+    -->
+
+    <section id="r6s" class="siege">
+        <div class="container-fluid row">
+            <div class="siegeTextBox col-8 mx-auto">
+                <h2 class="siegeHeader title">Rainbow Six Siege</h2>
+                <br/>
+                <p>I've been playing siege since 2018, Starting on Xbox with friends, and playing awfully, then making the jump to PC in 2019 
+                    where I quickly picked up the mechanics. I own multiple accounts, including a level 240 one, however I switched to playing on a ubisoft 
+                    copy of the game (rather than steam).
+                    <br/><br/>
+                    I have achieved top 1% multiple times, although I play much less than I once did, with only a couple games a season at this point. It still 
+                    remains a big part of my life, with my hours across the 3 accounts coming close to 3.5k. Im a massive fan of competitive tactical shooters, like CSGO, Siege, and Others. 
+                    Siege especially is build on an instant kill headshot with any weapon, making the time to kill as fast as your reaction times with a well placed shot, allowing for many playstyles 
+                    to work, from fast paced gameplay designed to throw off your enemies aim, or slower anchor playstyles using crosshair placement and utility to slow your opponent and get easy picks.
+                    <br/><br/>
+                    Siege is unique in this way, as many shooters have long time to kills, or one meta that rules, creating boring and repeatitive cycles that quickly get old, while in siege, the vast cast of characters allow 
+                    for different stratergies to come about, but if they fail, a round can be won through pure skill and induvisual hero plays. <br/>
+                    Id compare this to CSGO, where the time to kill is also very fast, and the game is unplayable without proper utility usage and teamwork. People get creative with stratergy, placement, and compositions, 
+                    creating exciting matches, and thriving competitive scenes.
+                </p>
+            </div>
+
+            <div class="siegeStats">
+                <div class="siegeStatsHead">
+                    <img src="../other/images/siegepfp.png" id="siegePfp" alt="pfp">
+                    <h2 class="siegeStatsTitle title-shadow">Oleka.</h2>
+                </div>
+                <div class="siegeStatsBody">
+                    <div class="siegeStatsKills">
+                        <p class="siegeStatsText">Kills &emsp;&ensp;&nbsp;   : <span id="kills"> 4,900</p></span>
+                        <p class="siegeStatsText">KD Ratio  : <span id="kd"> 1.44</span></p>
+                    </div>
+                    <div class="siegeStatsWins">
+                        <p class="siegeStatsText">Wins &emsp;&nbsp; : <span id="wins"> 591</span></p>
+                        <p class="siegeStatsText">Winrate &nbsp; : <span id="pWin"> 53.9%</span></p>
+                    </div>
+                    <div class="siegeStatsRank">
+                        <p class="siegeStatsText">MMR &emsp;&nbsp;  : <span id="mmr"> 3900</span></p>
+                    </div>
+                    <hr>
+                    <div class="siegeStatsFooter">
+                        provided by <a href="https://r6.tracker.network/" class="statLink">TRN network</a>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+    <br>
+    <hr>
+    <br>
+
+
+    <style>
+        .twitterPreview{
+            width: 36rem;
+            background-color: dimgray;
+            padding: 1rem;
+            margin: 1rem 0;
+            display: grid;
+            grid-template-columns: 10rem 2rem 23rem; 
+        }
+        .twitterPrevPfp{
+            border-radius: 100%;
+            width: 10rem;
+            background-color: aliceblue;
+        }
+        .twitterPrevContents{
+            grid-column: 3 / 4;
+            
+        }
+        .twitterPrevTop{
+            font-size: large;
+            font-weight: 550;
+            display: grid;
+            grid-template-columns: 14rem 2rem 5rem;
+        }
+        .twitterPrevTopTitle{
+            grid-column: 1;
+        }
+        .twitterPrevTopDate{
+            grid-column: 3; 
+        }
+        .twitterPrevTweet{
+            font-size: medium;
+        }
+    </style>
+
+    <div class="twitterPreview">
+        
+        <img class="twitterPrevPfp" src="../other/images/siegepfp.png">
+        
+        <div class="twitterPrevContents">
+            <div class="twitterPrevTop">
+                <div class="twitterPrevTopTitle">
+                    H8rs
+                    <sub> @H8rs4 </sub>
+                </div>
+                <div class="twitterPrevTopDate">
+                    14 Sept
+                </div>
+            </div>
+            <hr>
+            <div class="twitterPrevTweet">
+                A tweet from everyones favourite twitter user, who last posted like 10 months ago oops 
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .projectCard{
+            display: grid;
+            width: 50rem;
+            grid-template-columns: 30% 2% 64%;
+            border-radius: 15% 7.5% 7.5% 15%;
+            background-color: dimgray;
+        }
+        .projectCardImg{
+            width: 100%;
+            border-radius: 15% 0 0 15%;
+        }
+        .projectCardContents{
+            grid-column: 3;
+        }
+        .projectCardHead{
+            font-size: larger;
+            font-weight: 550;
+            display: grid;
+            grid-template-columns: 38% 20% 38%;
+            padding: 1.5rem 0.7rem;
+        }
+        .projectCardHeadTitle{
+            grid-column: 1;
+
+        }
+        .projectCardHeadTag{
+            grid-column: 3;
+        }
+        .projectCardDescription{
+            font-size:medium
+        }
+
+    </style>
+
+    <div class="projectCard">
+        <img class="projectCardImg" src="https://placeholder.pics/svg/200/DEDEDE/555555/project%20card">
+
+        <div class="projectCardContents">
+            <div class="projectCardHead">
+                <div class="projectCardHeadTitle">
+                    Project Card
+                </div>
+                <div class="projectCardHeadTag">
+                    [Tags] [Work]
+                </div>
+            </div>
+            <div class="projectCardDescription">
+                This is a project i produced like 3 years ago, never finished, and now sits dead on my github like 90% of the other work i do tbh 
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--
+
+
+        
+        Snowboarding
+            Pictures
+            Trip
+        Dogs
+            Pictures
+
+
+
+    -->
+
+
+    <!--Bootstrap CDN for website structure-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!--Jquery for Bootstrap CDN and personal code-->
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+</body>

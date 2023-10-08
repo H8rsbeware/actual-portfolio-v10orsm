@@ -1,0 +1,161 @@
+/* -- UNIVERSAL STYLING -- */
+
+:root {
+    --white: #EEE;
+    --disabled: #999;
+    --shadowinverse:#abf570;
+    --inverse: #c6fa9d;
+    --blue: #4c5270;
+    --shadowBlue: #343952;
+}
+
+/* https://fonts.google.com/specimen/Assistant -- OPEN USE LICENSE*/
+@font-face {
+    font-family: "Assistant";
+    src: url("../other/Fonts/Assistant/Assistant-VariableFont_wght.ttf");
+}
+
+
+
+body {
+    background: var(--blue);
+    color: white;
+    font-family: "Assistant";
+    font-size: large;
+    letter-spacing: 0.8px;
+
+}
+
+/* nav */
+.navbar1{
+    background: var(--shadowBlue);
+}
+.nav-link{
+    color: var(--white) !important;
+}
+.nav-link:hover{
+    color: var(--disabled) !important;
+}
+.active{
+    color: var(--shadowinverse) !important;
+}
+.active:hover{
+    color: var(--shadowinverse) !important;
+    cursor: default;
+}
+.disabled{
+    color: var(--disabled) !important;
+}
+.dropdown-menu{
+    background-color: var(--shadowBlue);
+    border-color: var(--white);
+}
+.dropdown-item{
+    color: var(--white);
+}
+.dropdown-divider{
+    border-color: var(--white);
+}
+
+/* text colour classes */
+.title{
+    color:var(--inverse);
+    font-weight: 650;
+}
+.title-shadow{
+    color:var(--shadowinverse);
+    font-weight: 550;
+}
+
+/* -- SIEGE -- */
+
+.siege{
+    margin: 2rem;
+}
+
+.siegeStatsHead{
+    font-size: 3rem;
+    margin: 1.5rem auto;
+    width: 100%;
+    
+}
+
+.siegeStats{
+    background-color: var(--shadowBlue);
+    width: 20%;
+}
+
+.siegeStatsTitle{
+    padding-top: 1rem; 
+}
+
+
+.siegeStatsText{
+    font-weight: 700;
+    font-size: larger;
+}
+
+#siegePfp{
+    display: block;
+    width: 7rem;
+    border-radius: 100%;
+    margin: 0 auto;
+    
+    
+}
+
+.cardRow{
+    margin: 0.5rem auto;
+    
+}
+
+@media(max-width: 1020px){
+    .siegeStats{
+        width: 35%;
+        display: block;
+        margin: 2rem auto;
+
+    }
+}
+@media(max-width: 639px){
+    .siegeStatsText{
+        font-weight: 500;
+        font-size: large;
+    }
+    .siegeStats{
+        width: 50%;
+        
+    }
+}
+@media(min-width: 1450px){
+    .siegeStats{
+        width: 15%;
+        margin: 2rem 5rem;
+    }
+}
+@media(min-width: 1985px){
+    .siegeStats{
+        width: 10%;
+        margin: 2rem 7rem;
+    }
+}
+
+.siegeStats hr{
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+   
+}
+
+.siegeStatsFooter{
+    margin: 0 0.5rem 0.3rem 0;
+    font-size: small;
+    color: var(--disabled);
+}
+
+.statLink{
+    color: var(--white);
+}
+.statLink:hover{
+    color: var(--inverse);
+}

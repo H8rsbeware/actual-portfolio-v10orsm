@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Meta data-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oakley / Contacts</title>
+    <!--Desktop computer emoji favicon, provided by Twemoji - Twitter (https://twemoji.twitter.com/), under the CC-BY-4.0 license (https://creativecommons.org/licenses/by/4.0/)-->
+    <link rel="icon" href="../other/favicon.ico">
+
+   
+
+    <!--Bootstrap classes-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+    
+    <link href="../stylesheets/contact.css" rel="stylesheet">
+
+    <!--FOUND IN OPTIMISATION INVESTIGATION -->
+    <!--NO LONGER EXISTS <script src="../scripts/form.js"></script> -->
+    <!--Font awesome for social SVGs--><!-- NOT REQUIRED FOR THIS PAGE<script src="https://kit.fontawesome.com/272018ad02.js" crossorigin="anonymous"></script> -->
+    
+    <!-- ADDED META TAGS -->
+    <meta name="description" content="Software development contact">
+    <meta name="keywords" content="Software, Web development, Portfolio, Contact">
+    <meta name="author" content="Oakley S">
+
+</head>
+
+<body>
+    
+    <!--Nav bar, Contains 6 items, Reactive to screen size, Linked to other parts of the page rather than offpage-->
+    <section id="navigation">
+        <nav class = "navbar sticky-top navbar-expand-md navbar1">
+            <div class="container-fluid">
+                <!-- CAUSES ISSUES WITH SCREENREADERS <a class="navbar-brand" href="#"></a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarControl" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    
+                <div class="navbar-collapse collapse" id="navbarControl">
+                    <ul class="nav navbar-nav mx-4 mb-1 ">
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./about.html">About</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./portfolio.html">Portfolio</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link active" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./personal.html">Full page</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><a class="dropdown-item" href="./personal.html#r6s">Siege</a></li>
+                                <li><a class="dropdown-item" href="#">Snowboarding</a></li>
+                                <li><a class="dropdown-item" href="#">Dogs</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section id="emailForm" >
+        <form action="/contacts.html/post" method="post">
+            <div class="emailFormHead title"><h3>Contact me</h3></div>
+
+
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <label for="emailFormFN" class="col-form-label">Firstname</label>
+
+                            
+                        <input id="emailFormFN" class="form-control" name="fname" required>
+                        <div class="invalid-feedback">
+                            Please enter a First Name
+                        </div>
+                            
+                    </div>
+                        
+                    <div class="col-lg-6 col-xs-12">
+                        <label for="emailFormLN" class="col-form-label">Surname &nbsp;</label>
+
+                        <input id="emailFormLN" class="form-control" name="lname">
+                            
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+            <div class="mb-3">
+
+
+                <label for="emailFormEmail" class="form-label col-auto">Email Address</label>
+
+
+                <input type="email" class="form-control" id="emailFormEmail" name="email" placeholder="your.email@provider.com" required>
+                <div class="invalid-feedback">
+                    Please enter an Email
+                </div>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="emailFormContent" class="form-label">Content</label>
+                <textarea class="form-control" id="emailFormContent" name="message" rows="3" required></textarea>
+
+                <div class="invalid-feedback">
+                    Please enter a message in the textarea.
+                </div>
+              
+            </div>
+            <div class="col-12 emailFormSubmit">
+                <button id="submit"class="btn sendBtn">Send email</button>
+            </div>
+            
+        </form>
+    </section>
+
+
+    <!--Bootstrap CDN for website structure-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>

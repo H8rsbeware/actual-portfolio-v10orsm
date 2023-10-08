@@ -1,0 +1,148 @@
+/* -- UNIVERSAL STYLING -- */
+
+:root {
+    --white: #EEE;
+    --disabled: #999;
+    --shadowinverse:#abf570;
+    --inverse: #c6fa9d;
+    --blue: #4c5270;
+    --shadowBlue: #343952;
+}
+
+/* https://fonts.google.com/specimen/Assistant -- OPEN USE LICENSE*/
+@font-face {
+    font-family: "Assistant";
+    src: url("../other/Fonts/Assistant/Assistant-VariableFont_wght.ttf");
+}
+
+
+
+body {
+    background: var(--blue);
+    color: white;
+    font-family: "Assistant";
+    font-size: large;
+    letter-spacing: 0.8px;
+
+}
+
+/* nav */
+.navbar1{
+    background: var(--shadowBlue);
+}
+.nav-link{
+    color: var(--white) !important;
+}
+.nav-link:hover{
+    color: var(--disabled) !important;
+}
+.active{
+    color: var(--shadowinverse) !important;
+}
+.active:hover{
+    color: var(--shadowinverse) !important;
+    cursor: default;
+}
+.disabled{
+    color: var(--disabled) !important;
+}
+
+/* text colour classes */
+.title{
+    color:var(--inverse);
+    font-weight: 650;
+}
+.title-shadow{
+    color:var(--shadowinverse);
+    font-weight: 550;
+}
+
+.dropdown-menu{
+    background-color: var(--shadowBlue);
+    border-color: var(--white);
+}
+.dropdown-item{
+    color: var(--white);
+}
+.dropdown-divider{
+    border-color: var(--white);
+}
+
+
+/* -- ACCORDION AREA TITLE -- */
+
+/* main title padding */
+.langTitle{
+    padding: 2% 4%;
+}
+/* accord container setup */
+.langAccord{
+    margin:2% auto;
+    width: 80%;
+    
+}
+
+/* -- ACCORDION -- */
+
+
+.accordion-item{
+    background-color: var(--blue);
+    border-color: var(--shadowBlue);
+    border-width: 1px;
+}
+.accordionBtn{
+    background-color: var(--blue);
+    color: var(--inverse);
+    
+}
+
+
+/* fighting bootstraps defaults */
+/* closed accordion item style */
+.accordion-button:not(.collapsed){
+    color: var(--shadowinverse);
+    background-color: var(--shadowBlue);
+}
+
+/* clicked on accordion item */
+.accordion-button:focus{
+    box-shadow: var(--inverse);
+}
+
+/* clicked off accordion item */
+.accordion-button:not(:focus){
+    box-shadow: var(--shadowBlue);
+}
+
+/* revealed text style */
+.accordion-body{
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.toolsTitle{
+    padding: 2% 4%;
+}
+.toolsItem{
+    min-height: 300px;
+    width: 90%;
+    position: relative;
+    border: 3px solid var(--shadowBlue);
+    border-left: 3rem solid var(--shadowBlue);
+    padding:15px 10px;
+    display: inline-block;
+    margin: 0 0 2% 4%;    
+}
+.toolsItem h3{
+    font-size:2rem;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-left: -2.6rem;
+    
+    transform-origin: 0 0 ;
+    transform: rotate(270deg);
+}
+
+

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Meta data-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oakley / Portfolio</title>
+    <!--Desktop computer emoji favicon, provided by Twemoji - Twitter (https://twemoji.twitter.com/), under the CC-BY-4.0 license (https://creativecommons.org/licenses/by/4.0/)-->
+    <link rel="icon" href="../other/favicon.ico">
+    <!--Bootstrap classes-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="../stylesheets/porfolio.css" rel="stylesheet">
+
+    <!--Font awesome for social SVGs-->
+    <script src="https://kit.fontawesome.com/272018ad02.js" crossorigin="anonymous"></script>
+    <!-- ADDED META TAGS -->
+    <meta name="description" content="Software development skills">
+    <meta name="keywords" content="Software, Web development, Portfolio, Skills">
+    <meta name="author" content="Oakley S">
+
+</head>
+
+<body>
+    <!--Nav bar, Contains 6 items, Reactive to screen size, Linked to other parts of the page rather than offpage-->
+    <section id="navigation">
+        <nav class = "navbar sticky-top navbar-expand-md navbar1">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="#"></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarControl" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    
+                <div class="navbar-collapse collapse" id="navbarControl">
+                    <ul class="nav navbar-nav mx-4 mb-1 ">
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./index.html">Home</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./about.html">About</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link active" href="#">Portfolio</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="./contacts.html">Contact</a>
+                        </li>
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Personal</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="./personal.html">Full page</a></li>
+                                <li><hr class="dropdown-divider"></li>
+
+                                <li><a class="dropdown-item" href="./personal.html#r6s">Siege</a></li>
+                                <li><a class="dropdown-item" href="#">Snowboarding</a></li>
+                                <li><a class="dropdown-item" href="#">Dogs</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+
+
+    <section id="languages">
+
+        <h2 class="title langTitle">Languages</h2>
+
+        <div class="accordion accordion-flush langAccord" id="langAccordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flushOneTitle">
+                    <button class="accordion-button collapsed accordionBtn" type="button" data-bs-toggle="collapse" data-bs-target="#flushOne" aria-expanded="false" aria-controls="flushOne">
+                        <h3>Javascript  and  Web  technologies</h3>
+                        <i class=""></i>
+                    </button>
+                </h2>
+                <div id="flushOne" class="accordion-collapse collapse" data-bs-parent="#langAccordion" aria-labelledby="flushOneTitle">
+                    <div class="accordion-body">
+                        As you may of guessed by the rest of the site, I have a good understanding of web technologies, including Javascript, Node, and associated markdowns, languages, and libraries.
+                        I have build many websites, ranging from A* algorithms to scalable sites involving API calls and server rendering. Ive had some experience with ejs and typescript however primarily 
+                        I practice and work in Javascript. <br> <br>
+
+                        I have experience working with and parsing JSON, using it for both static noSQL databases, and return objects from API calls. Jquery is a quality of life improvement to DOM interaction, and 
+                        can be found in many of my projects, along with environment variable files (.env), which while not as essential to lots of projects, are used throughout many of my own. <br> <br>
+
+                        I havent just made websites with JS, ive made console applications and utility tools, including ones that interact with other services like nanominer to bring all information to one place. 
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flushTwoTitle">
+                    <button class="accordion-button collapsed accordionBtn" type="button" data-bs-toggle="collapse" data-bs-target="#flushTwo" aria-expanded="false" aria-controls="flushTwo">
+                        <h3>Python</h3>
+                        <i class=""></i>
+                    </button>
+                </h2>
+                <div id="flushTwo" class="accordion-collapse collapse" data-bs-parent="#langAccordion" aria-labelledby="flushTwoTitle">
+                    <div class="accordion-body">
+                        Python was the first language I was ever exposed to, and has left a lasting impact on me, leading me down the rabbit hole of programming and to where I am today. While javascript is probably my 
+                        most used language, I have many projects in python, ranging from GUI based tools like my macro menu, to games, and so much more. These required libraries like TKinter (and CustomTkinter), pygame, numpy, and 
+                        app specific plugins like discord.py. <br> <br>
+
+                        The beauty of python is simplicity, even when Im learning a library or module for the first time, its often really easy to pick up and I feel comfortable diving into complex projects with new libraries, 
+                        learning as I go. Ive done small projects with OpenCV or sklearn, and while im not sure id be able to build them again without refreshing myself on the docs, python makes it easy to relearn past skills.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flushThreeTitle">
+                    <button class="accordion-button collapsed accordionBtn" type="button" data-bs-toggle="collapse" data-bs-target="#flushThree" aria-expanded="false" aria-controls="flushThree">
+                        <h3>The  C  Family</h3>
+                        <i class=""></i>
+                    </button>
+                </h2>
+                <div id="flushThree" class="accordion-collapse collapse" data-bs-parent="#langAccordion" aria-labelledby="flushThreeTitle">
+                    <div class="accordion-body">
+                        Ive used all 3 C based languages to varying degrees of knowledge, many of my University projects are built in C++ or C#, so I understand their syntax, behaviour and challanges. Im most confident in C# as 
+                        Ive build many games with the Unity engine, from personal passion projects (like a payday 2 topdown tribute), to University group games like <a href="https://violationthefirst.itch.io/isotrauma" class="title">IsoTrauma</a>. 
+                        Alongside games, ive used it for apps using the .net framework, and code puzzles set by the Uni, making me quite comfortable with the language. <br> <br>
+
+                        When I taught myself basic C++, I was amazed I hadnt taught myself earlier, I seemed effiecent and easy to use, however I quickly realised that C# came with many more comfort features. While C++ is not my strongest language, 
+                        I enjoy programming in it, and would love to gain more experience as, other than a few uni tasks and small personal programs, I really dont have the hands on time with it that id like to. C is similar, while the syntax can be 
+                        learnt in 2 mins, mastering the language, or even searching a string, can be much more difficult, and while I understand the hardware that you interact with, its something id like to get much better at.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flushFourTitle ">
+                    <button class="accordion-button collapsed accordionBtn" type="button" data-bs-toggle="collapse" data-bs-target="#flushFour" aria-expanded="false" aria-controls="flushFour">
+                        <h3>Others  -  Bash,  mySQL, etc</h3>
+                        <i class=""></i>
+                    </button>
+                </h2>
+                <div id="flushFour" class="accordion-collapse collapse" data-bs-parent="#langAccordion" aria-labelledby="flushFourTitle">
+                    <div class="accordion-body">
+                        Speeding up repeatitive tasks is the fundemental use of programming languages, and bash is the ultimate language for doing so. While im not amazing at it, automating tasks like git commits, heroku pushes, and clearing node instances and 
+                        then running a new node server, makes me appreciate the time saved by smaller scripts. With 10 lines of code, you reduce a commit and/or host from 6 lines to 1, saving me small amounts of time frequently.
+                        <br><br>
+                        mySQL is the standard for structured databases, and while im not a fan of its syntax, its simple to use. I prefer planning out my databases in a program like Access or on paper to minimise the amount of time messing with mySql, streamlining the 
+                        process and quickly building relational databases when required.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Tools">
+        
+        <h2 class="title toolsTitle">Tools</h2>
+
+        <div class="toolsList">
+            <div class="toolsItem">
+
+                <div class="toolsLabel">
+                    <h3 class="title-shadow">Unity</h3>
+                </div>
+                <div class="toolsContent">
+                    <p>My journey with Unity started a while before Uni, after seeing videos on game development using engines. 
+                        I decide to try it out, doing basic movement in both 3D and 2D, building the standard platformers, movement shooter and other blocked 
+                        out games. I then started work on a 2D top down payday 2 tribute game, creating my own assets, mechanics, and code for it, while not the 
+                        most optimised, this nicely transitioned me into my first year of University, where we used unity for GUI for projects, and used it in a 5 month
+                        group project, building a 3D psychological horror game, called IsoTrauma. I was responsible for some base movement mechanics, worked alongside other 
+                        programmers to optimise scripts, and fix bugs throughout. <br><br>
+
+                        While the repo appears to be lost, the full game is accessable on <a href="https://violationthefirst.itch.io/isotrauma" class="title">itch.io</a>, unfortunately 
+                        not fully finished due to overscoping. Overall, I see this specific project as an amazing learning experience for both teamwork and planning, although Im not sure Id 
+                        make a horror game again, as its extremely hard to make it actually scary and mysterious. <br><br>
+
+                        Ive produced many other small projects, which have largely contributed to my coding skills today, even if its not my favourite type of development. Being able to see the 
+                        outcome of every change, and work towards a playable MVP is exceptionally rewarding, and useful for learning.
+                    </p>
+                </div>
+            </div>
+            <div class="toolsItem">
+
+                <div class="toolsLabel">
+                    <h3 class="title-shadow">Git and Fork</h3>
+                </div>
+                <div class="toolsContent">
+                    <p>Every programmer, at some point or another, has used github. Its a powerful tool, that allows for version control, change tracking, and multi-person development.
+                        Its also very useful as a pipeline, creating a division between development, production, and live servers, especially in web-development. Git is something I use on 
+                        my laptop, and ive found it to be way more effiecent, as you can write bash files to automatically execute test, and the push if it passes them all. Command lines, while 
+                        often look confusing, they provide further depth of control, and learning git has pushed me to learn many other ideas, and languages, to further optimise my production pipeline.
+                        <br><br>
+                        Completely opposite to git, Fork is a GUI for github, which we use in University (although I have now switched to Git using SSH). It provides a clear map of branches and changes, however 
+                        lacks finer control. Fork can be exceptionally valuable as its merge conflict management, commit buffer (much like git), and commit selector have saved me from many of my own mistakes, so 
+                        I consider it a great first step when learning how to effiecent work with github, especially with a team, where single mistakes have the chance of damaging others hard work.
+                    </p>
+                </div>
+            </div>
+            <div class="toolsItem">
+
+                <div class="toolsLabel">
+                    <h3 class="title-shadow">Hosting</h3>
+                </div>
+                <div class="toolsContent">
+                    <p>In the world of web development, there are 2 main host providers: AWS and Google Cloud. <br>
+                        I have experience using AWS, however, it was my first time attempting to host a website. For anyone whos used AWS, you'll know that choice is very confusing, and not 
+                        fully understand the web technologies it allowed for, or even the ones I was using, lead my to feel like id thrown myself in the deep end. I did eventually figure it out 
+                        but I now use heroku for my website hosting, as it requires much less set up and is as close as it gets to "upload and go" as it gets. While not actually that simple 
+                        heroku is way easier to use than larger services, although has much less flexiblity than them.
+                        <br><br>
+                        Id like to go back to AWS and learn more about how to use it, and all the options it provideds, and id also like to explore Google cloud, as big services are almost always standard 
+                        for a reason. In the meantime, heroku is an invaluable tool for my personal sites.
+                        <br><br>
+                        Github pages is another option for static sites, but it doesnt allow for basic features like node.js servers, or many other features I require in my newer sites. So while its very simple to use 
+                        I tend to avoid it. 
+                    </p>
+                </div>
+            </div>
+            <div class="toolsItem">
+
+                <div class="toolsLabel">
+                    <h3 class="title-shadow">IDEs and apps</h3>
+                </div>
+                <div class="toolsContent">
+                    <p> IDEs are immensely powerful tools for writing code, from visual studio and its little brother VS code to pycharm and code blocks. Ive used a wide variety of different IDEs, trying to find my favourite. 
+                        For languages like Javascript and python, I use VS code, as its light weight, intuitive shortcuts, and clean layout make for an effiecent programming experience. 
+                        <br><br>
+                        Outside of normal IDEs, ive made use of code blocks for C and C++ programming, jupyter for certain python projects, and Vim for writing bash and other short scripts. All three are massively different, 
+                        with standard vim not doing any syntax highlighting or correction, without breaking out VimScript, while jupyter is a line by line IDE looking very strange when compared to the others. Codeblocks is 
+                        kind of like an open source version of visual studio, and I tend to not use it when I have access to the latter, but on my laptop, its a main stay as I dont have access to many microsoft apps on linux.
+                        <br><br>
+                        I have experience using other apps, like putty for connecting to local servers, the console for deeper diagnostics, wireshark for network snooping (and a local network plugin), and other random apps 
+                        for really specific use cases.
+                        I enjoy learning how to use new pieces of software effiecently, and find it easy to adapt them into my work.  
+                    </p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </section>
+
+    <!--
+        Code knowledge
+            - python
+                -tkinter
+                    -custom tkninter
+                -pygame
+                -jupyter
+                -discord.py
+            - web languages
+                -node
+                -ejs
+                -apis
+                -json
+                -express/http
+                -hosting
+                -html/css/js..
+                -env
+                -jquery
+                -discord.js
+            - c# 
+
+            - c++
+            - bash
+        Tool knowledge
+            -unity
+            -heroku
+            -git
+            -fork
+            -vim
+            -visual studio/studio code
+            -pycharm
+        Ideas
+            -machine learning
+                -nearest neighbour
+                -minimax
+            -bot making
+            -cui
+            -gui
+            -recursion
+            -functional
+            -oop
+            -linux and windows 
+            -game creation
+            -app building
+            -api requests
+            -basic networking
+            
+
+    -->
+
+<!--Bootstrap CDN for website structure-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>

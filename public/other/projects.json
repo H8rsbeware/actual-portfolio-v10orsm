@@ -1,0 +1,79 @@
+{
+    "projects":[
+        {
+            "name":"Open Wallet",
+            "tags":"[PERSONAL] [JS] [NODE] [WIP]",
+            "disc":"A future node.js based wallet and nanominer interaction tool, acting as a client side CUI for configuration and presetting mining wallets, coins, and rignnames. Also has Nanominer API integration for hash rate, balance, and other wallet details. Completely open source under the GNU GPLv3 License.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/OpenWallet",
+            "url":"https://github.com/H8rsbeware/OpenWallet/"
+        },
+        {
+            "name":"Race Car Simulatation",
+            "tags":"[UNI] [C++]",
+            "disc":"A maths based simple 2D track using maths to calculate the curves and the realitive position of the car at a constant speed. The direction is calculated as a dot product of the cars position as a tangent to the curve. Its programmed in C++ using a template provided by the lectures, none of the original comments are removed.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/RaceCar",
+            "url":"https://github.falmouth.ac.uk/OS259357/Comp270-As1-Ws1"
+        },
+        {
+            "name":"IsoTrauma",
+            "tags":"[UNI] [UNITY] [C#]",
+            "disc":"A team project developing a game from scratch over a 4 month period. The idea a psychological horror surrounding a sole passanger on an abandoned ship, exploring areas and solving puzzles to answer the question of who you are. While the project wasnt finished, time and effort from the whole group went into the final product. Written in C# using the unity game engine.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/Isotrauma"
+        },
+        {
+            "name":"NnC",
+            "tags":"[ALEVEL NEA] [JS] [BOOTSTRAP]",
+            "disc":"A Non-examined assessment for my alevel final in computer science, Its a recreation of tic tac toe, or noughts and crosses, where i use minimax for a bot or just play with friends, while my attention was mostly focused on using bootstrap to create a fluid site, there is a fair amount of other element that make up the site.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/Nnc",
+            "url":"https://github.com/H8rsbeware/NnC_2.0"
+        },
+        {
+            "name":"Python Jumper",
+            "tags":"[PERSONAL] [PY] [PYGAME]",
+            "disc":"A Basic up scrolling platformer built in python over a few days, It was a good way to learn pygame, and do some basic asset design, while not perfect, the proof of concept and practice were great takeaways. It runs straight from the python console, with all code avaliable on my personal github.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/Pyjump"
+        },
+        {
+            "name":"Tinkering Graphics",
+            "tags":"[UNI] [C#] [.NET]",
+            "disc":"A C# project that allows you to tweak images with certain effects, programmed to gain a further understanding of digital image processing. It was built on the .net framework from the group up, over a 4 week period with the code full accessiable on github.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/graphics",
+            "url":"https://github.falmouth.ac.uk/OS259357/Tinkering-Graphics-Public"
+        },
+        {
+            "name":"Maker.cfg",
+            "tags":"[PERSONAL] [PY] [CUSTOMTK] [WIP]",
+            "disc":"A python project using Custom Tkinter, a GUI that is used for creating config files for CSGO, taking in keybinds, viewmodel, HUD/UI, and other settings and creating a text file that can be used in game or reloaded and edited. Currently a WIP, with the code avaliable on my personal github.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/cfgmaker"
+        },
+        {
+            "name":"Marco menu",
+            "tags":"[PERSONAL] [PY] [TK]",
+            "disc":"A python build macro program with a GUI built in tkinter using the keyboard HID emulation, library, made to automate specific tasks like discord bot games, and auto clickers, writers, and more. The repo contains an all in one executable. All code can be found on the repo (personal), although its not the neatest",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/macro",
+            "url":""
+        },
+        {
+            "name":"Joke site",
+            "tags":"[PERSONAL] [JS] [NODE]",
+            "disc":"A site built using node, the https module, a joke api, and mailchimp api. The site takes in restraints/topics and returns random jokes according to them. It also has a newsletter, and uses EJS, making it a project of firsts. All code can be found on my personal repo.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/Joke",
+            "url":""
+        },
+        {
+            "name":"Discord bot.py",
+            "tags":"[PERSONAL] [PY] [DEPRECIATED]",
+            "disc":"A python discord bot written using discord.py, it contains mod commands (like kick, ban, and mute), custom status cycling, duration converters, and prefixes saved in a json file thats server specific.  ",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/bot.py",
+            "url":""
+        },
+        {
+            "name":"Discord bot.js",
+            "tags":"[PERSONAL] [JS] [NODE]",
+            "disc":"Built before the python bot, this JS bot is another node project, using discord.js with api interaction with twitter, nasa, openweather, tenor, nanominer, and covid stats, alongside tradional commands, like moderation, fun, help, and more.",
+            "img":"https://placeholder.pics/svg/800/DEDEDE/555555/bot.js",
+            "url":""
+        }
+    ]
+}
+ 
