@@ -1,7 +1,7 @@
 let cardStore
 
 // Custom data structure, corosponds to projects.json
-class card{
+class Card{
     constructor(projectName, tags, text, image, url){
         this.name = projectName
         this.tags = tags
@@ -28,7 +28,7 @@ async function createCards(json){
     let cards = new Array()
     //For every project, it creates a card data type and pushes it to the array
     for(let i = 0; i < rJsonL; i++){
-        cards.push(new card(rJson.projects[i].name,rJson.projects[i].tags,rJson.projects[i].disc,rJson.projects[i].img, ""))
+        cards.push(new Card(rJson.projects[i].name,rJson.projects[i].tags,rJson.projects[i].disc,rJson.projects[i].img, rJson.projects[i].url))
     }
     //Returns that array of cards
     return cards

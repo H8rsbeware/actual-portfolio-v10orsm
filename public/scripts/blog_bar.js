@@ -21,7 +21,7 @@ class blog_card{
     }
 
     card_build() {
-        return card = (`    
+        return (`    
         <div class="blogPreview">
             <div class="blogPrevTitle">
                 ${this.date} | ${this.title}
