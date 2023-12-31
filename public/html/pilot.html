@@ -11,12 +11,8 @@
     <!--Bootstrap classes-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
    
-    <link href="../stylesheets/personal.css" rel="stylesheet">
+    <link href="../stylesheets/pilot.css" rel="stylesheet">
 
-    <script src="../scripts/personal.js"></script>
-
-
-    <!--FOUND IN OPTIMISATION INVESTIGATION -->
     <!--Font awesome for social SVGs-->
     <script src="https://kit.fontawesome.com/272018ad02.js" crossorigin="anonymous"></script>
     <!-- ADDED META TAGS -->
@@ -62,8 +58,982 @@
         </nav>
     </section>
 
-    <section id="proposal">
+    <script>
+        function toggle_div(div_id){
+            var all_el = document.getElementById(div_id);
+            
+            if (all_el.style.display === "none"){
+                all_el.style.display = "block";
+            }else{
+                all_el.style.display = "none";
+            }
+        }
+    </script>
 
+    <!--THIS IS DISGUSTING ALLOW IT-->
+    <div id="index" class="index">
+        <h2 class="title">Index</h2>
+
+        <p>Click to jump to a point on this page</p>
+
+        <a href="#proposal">Proposal</a> <br>
+        &ensp;<a href="#abstract">Abstract</a> <br>
+        &ensp;<a href="#introduction">I. Introduction</a> <br>
+        &ensp;<a href="#background">II. Background</a> <br>
+        &ensp;&ensp;<a href="#background-dna">A. DNA</a> <br>
+        &ensp;&ensp;<a href="#background-biocompression">B. Biological Compression</a> <br>
+        &ensp;&ensp;&ensp;<a href="#background-biocompression-reffree">1) Reference-Free</a> <br>
+        &ensp;&ensp;&ensp;<a href="#background-biocompression-refbased">2) Reference-Based</a> <br>
+        &ensp;&ensp;<a href="#background-alignment">C. Sequence Alignment</a> <br>
+        &ensp;<a href="#qsandhs">III. Questions and Hypotheses</a> <br>
+        &ensp;<a href="#methods">IV. Methodology</a> <br>
+        &ensp;&ensp;<a href="#methods-artefact">A. Artefact</a> <br>
+        &ensp;&ensp;<a href="#methods-devcycle">B. Development Cycle</a> <br>
+        &ensp;&ensp;<a href="#methods-tests">C. Tests</a> <br>
+        &ensp;&ensp;&ensp;<a href="#methods-tests-tanda">1) Tests and Analysis</a> <br>
+        &ensp;&ensp;&ensp;<a href="#methods-tests-data">2) Data sets</a> <br>
+        &ensp;<a href="#ethics">V. Ethics</a> <br>
+        &ensp;<a href="#future">VI. Future Works</a> <br>
+        &ensp;<a href="#references">References</a> <br>
+
+        <p>You can also click headings to hide contents below</p>        
+    </div>
+    
+    <br><br>
+
+    <h2 onclick="toggle_div(`proposal`)" class="title p_title">Proposal</h2>
+    <section id="proposal">
+        <div id="abstract">
+            <p>
+            <strong class="title">Abstract —</strong> This study will look into the compression of genomes
+            using various methods in the field. We review the basic structure
+            of DNA II-A, and relevant literature from both the main fields
+            of genome compression II-B, sequence alignment II-C, and other
+            core concepts used. Then, we propose an algorithm that makes
+            use of alignment metrics in the context of directed graphs to
+            organise genomes using their similarity as weight, then referentially compress related genomes, and re-aligning/re-organising
+            references in the downtime of the database. This program will
+            then be compared against GDC2 [1], a similar multi-reference
+            database that uses an alignment heuristic, against a large
+            dataset in 5 key areas: Compression speed, decompression speed,
+            compression memory, decompression memory, and compression
+            ratio.
+            </p>
+        </div>
+        <h3 onclick="toggle_div(`introduction`)" class="title primary-head">I. Introduction</h3>
+        <div id="introduction">
+            <p>
+            With the last couple of decades, DNA sequencing
+            costs have fallen substantially due to improvements
+            in high-throughput genome sequencing, with a whole human
+            genome costing about $1 million (USD) in 2007, to $600 as of
+            2023 [3], and out-pacing Moore’s law predictions substantially
+            [4]. With these gains, the amount of genomes sequenced has
+            increased to the point where storage and transfer of results
+            have become a limiting factor, improving at a much slower
+            rate, and often being more costly than the sequencing itself
+            [5]. The Sanger Institute, alone, have sequenced upwards of
+            21 quadrillion bases (of Human DNA) [6], at 2 bits per base,
+            creating a clear opportunity for compression methods to use
+            the context of DNA to reduce the size, transfer costs and space,
+            required for a given genome.
+            </p>
+            <p>
+            Genome-specific compression takes advantage of the repetitive nature of DNA, 
+            both within a single genome, and related and same species of genomes. As an example, Human
+            genomes are 99.5% identical [7], [8], with changes infrequently scattered across the sequence. 
+            The high volume ofshared sub-sequences among similar or same species allows
+            target sequences to reference areas of one (or many) related
+            sequences, known as reference-based compression II-B2. They
+            also have a high level of predictability and self-repetition,
+            lending themselves nicely to statistical models [9], that attempt 
+            to reconstruct the next symbol in a sequence using the
+            previous K-amount, and self-referencing approaches, methods
+            of reference-free compression II-B1.
+            </p>
+            <p>
+            With the ever-increasing sequencing speed of DNA and the
+            need for further developments in improved storage methods
+            and algorithms, this study will look into genome compression
+            using a combination of alignment and compression stratergies.
+            </p>
+        </div>
+        <h3 onclick="toggle_div(`background`)" class="title primary-head">II. Background</h3>
+        <div id="background">
+            <p>
+            To contextualise and answer the question posed by this
+            study, we need to look into several areas of academic literature,
+            these include a basic overview of DNA II-A and its structure
+            which can be used to make assumptions about the data, a
+            look into pre-existing methods for compression relevant to
+            biological sequences II-B, and finally Alignment algorithms
+            II-C.
+            </p>
+            <h4 onclick="toggle_div(`background-dna`)" class="title secondary-head">A. DNA Structure</h4>
+            <div id="background-dna">
+                <p>
+                In layman’s terms, DNA - or Deoxyribonucleic acid - is
+                two strands consisting of a series of complimentary bases
+                represented by a 4 symbol alphabet, intertwined in a double
+                helix structure. These strands are known as polynucleotides,
+                as they consist of many nucleotides, each of which contains
+                one of the bases Cytosine (C), Guanine (G), Adenine (A), or
+                Thymine (T). DNA follows the base-pairing rules, where A
+                always brings to T, and C with G, thus one strand can be
+                ignored when storing data, as it can be inferred [11].
+                </p>
+                <p>
+                Relatedness of species is the main predictor of similarity between genomes [12], with differences (particularly
+                in humans) usually being single nucleotide polymorphisms
+                (changes) referred to as SNPs [13], identifiable by large areas
+                of ”unchanged” bases surrounding them. Thus large areas of
+                a target genome can be considered repeats or palindromes
+                of a reference sequence. It’s for this reason that when digitally storing DNA,
+                 traditional text-based compression methods
+                don’t perform anywhere close to optimally [14], being outperformed 
+                by simply storing each base as 2bits (representative
+                of the 4 symbol alphabet).
+                </p>
+                <p>
+                Another potentially exploitable property is the large quantities
+                 of non-coding nucleotides so aren’t responsible for protein
+                synthesis, however, this is dependent on species, with humans
+                having about 98% non-coding DNA [15] while bacteria is
+                around 12% [16]. These areas’ function is largely still being debated [17],
+                 and thus still being studied, however for
+                databases that only store genetic sequences for proteins, these
+                non-coding genes can be ignored.
+                </p>
+                <p>
+                Even within a single genome, despite its surface-level
+                irregularity, there tends to be a large number of repeating
+                factors (sub-sequences) and a high level of predictability [9].
+                This allows for single sequences to reference themselves and
+                be stored as a series of repeats, palindromes, insertions, and
+                deletions, for example with Lempels-Zivs sequential compression algorithm [18]. 
+                They are also well suited to statistical
+                compression, like through the use of hidden Markov models,
+                which predict the sequence, based on previous bases and prior
+                knowledge, one such example is DNAEnc3 [19], explained in
+                II-B1.
+                </p>
+            </div>
+            <h4 onclick="toggle_div(`background-biocompression`)" class="title secondary-head">B. Biological Compression</h4>
+            <div id="background-biocompression">
+                <p>
+                As mentioned in the Introduction, all compression methods aimed 
+                at biological sequences fall under two categories,
+                reference-based and reference-free, both of which take advantage 
+                of the previously described properties. Within this
+                paper, our focus lies almost exclusively on reference-based
+                compression, however, it is important to understand both as
+                many ideas are shared.
+                </p>
+                <h5 onclick="toggle_div(`background-biocompression-reffree`)" class="title tertiary-head">1) Reference-Free</h5>
+                <div id="background-biocompression-reffree">
+                    <p>
+                    With reference-free compression, the
+                    first major step was made before the context of biological
+                    sequences, Lempel and Ziv proposed a universal algorithm
+                    for sequence data compression [18], which is almost optimal
+                    for sequential data. It works over a set-size alphabet, replacing
+                    blocks of repeating characters with references to other points
+                    in the sequence, ultimately reducing the size of the sequence
+                    (as seen in fig 2). Their algorithm would inspire a lot of the
+                    early work into single genome compression, including the first
+                    Biocompress [14], simply using the length and position of
+                    the earliest occurrence to encode the repeating factors. 
+                    </p>
+                    <p>
+                    Later, GenCompress [20] would introduce the idea of approximate
+                    repeats, improving the sub-field significantly and showing that
+                    they are one of the main hidden regularities which many
+                    others would continue to account for in their approaches. The
+                    authors also introduce a relatedness algorithm, for comparing
+                    two sequences, although only in theory. 
+                    </p>
+                    <p>
+                    DNAEnc3 [19] uses a different approach entirely, exploiting competing Markov
+                    models of different orders to find the distribution of symbols
+                    in a sequence, feeding into a single gating function responsible
+                    for taking the output of each model and weighting them
+                    into a single output (Mixture of Experts model).
+                    </p>
+                    <p>
+                    A following model (largely with the same authors), GeCo, would take
+                    this approach further able to compress with or without a
+                    reference genome, and implementing a method for dynamic
+                    memory optimisation to ensure performance on any system,
+                    called cache-hashing (only the last hashed factors are stored in
+                    memory) [21]. Mixture of Experts and Hidden Markov models
+                    would also find a use in similarity alignment, which we explore
+                    further in the literature review II-C.
+                    </p>
+                </div>
+                <h5 onclick="toggle_div(`background-biocompression-refbased`)" class="title tertiary-head">2) Reference-Based</h5>
+                <div id="background-biocompression-refbased">
+                    <p>
+                    The first proper attempt at reference-
+                    based compression was by S. Christley, et al., their algorithm,
+                    DNAZip, forwent using a dictionary, instead directly pointing
+                    to the reference genome. The method used the insertion of
+                    single and multiple base changes (stored as position, base(s)),
+                    and deletions (position, length). While a simple approach, a
+                    few other methods were employed such as: Variable integers
+                    (VINT), which mimic a typical C-string, use an ”end-of-
+                    integer” flag to reduce the number of bytes required to store
+                    the position, but still allow for the whole sequence range to be
+                    referenced; Delta positions which stored positions relative to
+                    the last variation; SNP mapping, comparing the two sequences
+                    and mapping changes to a bitmap were 0s were the same,
+                    and 1s were differences; and K-mer partitioning, which split
+                    the sequence, encoded them as a list of Huffman codes (and
+                    2bits if needed). While this method was rudimentary, these
+                    methods highlight some of the easier optimisations that can
+                    be made surrounding genomes, it also gave a basic order
+                    of operations for reference-based compression: Alignment,
+                    Comparison, Compression, and then further compression using
+                    Huffman coding [22] or a similar process [23].
+                    </p>
+                    <p>
+                    The Authors of RLZ [24] take a different approach to
+                    finding factors, using suffix arrays to greedily pass both
+                    genomes into factors using LZ77 [25], and then a second pass
+                    is done relative to the reference which is used as a dictionary.
+                    Later improvements are made to the first pass, using a non-
+                    greedy method.
+                    </p>
+                    <p>
+                    GDC’s [26] authors takes issue with the use of suffix trees in
+                    the RLZ approach, noting that greedy approaches are usually
+                    sub-optimal. While they are good for non-greedy approaches,
+                    hash arrays are most frequently used for LZ77 factor parses.
+                    Instead, they propose hashing for the match-finding LZ approach, 
+                    allowing for multiple references in their more extreme
+                    modes of the program. They also make use of a fast heuristic
+                    for finding approximate (and appropriate) reference sequences
+                    and encoding blocks of the sequence (like DNAZip [14])
+                    using Huffman encoding [22] and literals (where required)
+                    for random access. Another large improvement is the use 
+                    approximate repeats, exploiting the fact that most changes are
+                    SNPs [27], and thus surrounding bases are often similar to
+                    an already hashed sub-sequence, making it more efficient to
+                    reference the SNP’s base as a change to a given sub-sequence.
+                    </p>
+                    <p>
+                    The FRESCO [28] method again uses a suffix tree, this
+                    time compressed, of the reference sequence to find prefixes of
+                    an input string within substrings of the reference. However
+                    where this algorithm finds its gains is in reference selection, 
+                    second-order compression (referentially compressing an
+                    already reference-compressed sequence), and rewriting the
+                    reference in a way that optimises for the most frequent changes
+                    in target sequences.
+                    </p>    
+                    <p>
+                    GDC’s [26] Authors then propose GDC2 [1] which they directly compare to 
+                    FRESCO [28] in their paper. While marked
+                    as an iteration, the authors made a series of changes to the
+                    algorithm: opting for LZSS [29], LZ77 but with a threshold to
+                    ensure size is reduced, factoring (encode sequence as matches
+                    and literals); not limiting the number of short matches; adding
+                    second-order compression (much like FRESCO [28]); and
+                    writing in multi-threading support. With their implementation
+                    of second-order compression, the authors use a unique estimation approach to positions, 
+                    allowing smaller values to be stored
+                    than their counterparts. They also use a better entropy coder,
+                    and an alternate way of indexing sequences than FRESCO,
+                    resulting in a fairly significant incremental improvement in
+                    most of their tests.
+                    </p>
+                </div>
+            </div>
+            <h4 onclick="toggle_div(`background-alignment`)" class="title secondary-head">C. Sequence Alignment</h4>
+            <div id="background-alignment">
+                <p>
+                Sequence Alignment is a method for arranging DNA (and
+                other biological sequences) to identify regions that are similar
+                between sequences. If two sequences are closely related in
+                taxonomy, they should align well [12]. Generally, there are
+                two approaches for alignment, slower and more scrutinous
+                algorithms, and faster heuristic approaches.
+                The standard files for alignment include Binary Alignment
+                Map (BAM) and Sequence Alignment Map (SAM) [30], [31],
+                which use the CIGAR (Compact Idiosyncratic Gapped Alignment Report) [32] 
+                format representing alignment. CIGAR
+                tracks matches, insertions, deletions, skipped regions, and a
+                few other alterations to give an idea of the overall difference
+                between two sequences. You can’t recreate the target sequence
+                exclusively from this file, but it does allow for a more compact
+                way to compare alignment.
+                </p>
+                <p>
+                Outside of these file formats, there are two main methods
+                of alignment, Global and Local [33]. Global alignment works
+                best on sequences that are similar in both form and size and
+                attempts to align all symbols in a string. Local alignments
+                are typically more useful for less similar sequences that
+                still contain some regions of similarity. There are also some
+                hybrid methods (semi-global) which search for the best partial
+                alignment, typically this method is used when 2 sequences
+                are vastly different lengths, thus the shorter of the two is
+                globally aligned with the longer sequence, but the longer one
+                is considered locally aligned [34].
+                </p>
+                <p>
+                The two standard algorithms for these methods are the
+                Needleman-Wunsch algorithm (global) [35] and the Smith-Waterman algorithm 
+                (local) [36], with the latter being based
+                on the former. These use matrices, dynamic programming, and
+                a scoring system to find the alignments within two sequences.
+                Needleman-Wunsch follows 4 steps:
+                <ol>
+                    <li> The matrix is constructed, with sequences (S1, S2)
+                    placed on either axis, with a single gap in the first place. </li>
+                    <li> A scoring system is applied to mismatches, indels (insertions/deletions), 
+                    and matches. A simple system being -2, -1, 1 (respectively).</li>
+                    <li> The matrix is then filled, at any point (X, Y) the score
+                    is added to (X-1, Y), (X, Y-1), and (X-1, Y-1), with the
+                    max value of the 3 being inserted into (X, Y). One thing
+                    to note, the first row and column will be 0..-n, or 0, -1,
+                    -2, ... </li>
+                    <li> Once the matrix is filled, alignment can be traced back
+                    up the grid from the bottom right, always picking the
+                    highest number.
+                    <ul>
+                        <li>Diagonal lines - Match or mismatch</li>
+                        <li>Horizontal/Vertical lines - Indel</li>
+                        <li>Multiple arrows are allowed, and represent branching</li>
+                    </ul>
+                    </li>
+                </ol>
+                </p>
+                <p>
+                While their algorithm is considered close optimal [37], its
+                space and time complexity is still rather large (O(S1*S2) or
+                O(S1*S2 / log(n)) [38]), often having large areas of the matrix
+                be entirely negative numbers, and thus will never be searched
+                for alignment. In the Smith-Waterman local alignment method,
+                the rest of the grid’s context is much more important, while
+                still retaining the same worst-case time and space complexity.
+                Using a different starting matrix state and scoring system,
+                multiple alignments can be found in the same matrix.
+                <ul>
+                    <li>First, the matrix is instead constructed with the row and
+                    column 1 being set to all 0s, instead on 0..-n </li>
+                    <li>No numbers are negative in the grid, the scoring system
+                    is based off matches, mismatches, and gaps (eg 1, -1, -2).</li>
+                    <li> For position (X,Y), (X-1, Y) and (X, Y-1) have the gap
+                    penalty added, and for (X-1, Y-1) the match or mismatch
+                    score is added. The max is then taken between these 3
+                    scores, and 0 (a base case).</li>
+                    <li>When tracing back, the highest number at any point in the
+                    grid is picked, and followed up towards 0,0. Once a score
+                    of 0 is hit, the alignment has ended. Each subsequent next
+                    highest number (H), represents the H-best alignment.</li>
+                </ul>
+                </p>
+                <p>
+                Due to the aforementioned complexity of these algorithms,
+                many heuristics have been proposed and used to speed up the
+                process of alignment. Two of the mainstays are FASTA [41],
+                [42] and BLAST [43], [44], which focus on local alignments.
+                </p>
+                <p>
+                Both algorithms are rather complex but briefly explained:
+                    <ul>
+                    <li>FASTA - Performs a fast search for potential matches
+                    or hot spots, comparing set word lengths (K) between
+                    sequences using some form of hash-based algorithm, the
+                    larger the K value, the faster the search, at the cost of
+                    sensitivity. Then potential matches are searched with an
+                    algorithm similar to Smith-Waterman’s alignment.</li>
+                    <li> BLAST - Through a process called seeding, short
+                    matches between sequences are found using a word-based
+                    approach, if matches are found, then local alignments
+                    start to be made. If the words satisfy a similarity threshold, 
+                    a more intensive scoring matrix is used (commonly
+                    BLOSUM62) to compare these words against matches in
+                    a database of sequences. Many other BLAST methods
+                    make adjustments to the original algorithm including
+                    PSI BLAST, Parallel BLAST, and BLASTn (for DNA
+                    specifically) [45].</li>
+                    </ul>
+                </p>
+                <p>
+                Many heuristic methods also make use of hidden Markov
+                models [46] for multiple sequence alignment, which is a
+                machine-learning approach that can yield faster results from
+                scoring matrices through the use of probability models devised
+                from all sequences in a set, one example being ProbCons [47].
+                In this case, symbols in a given sequence are represented
+                with a series of nodes (S), insertions (I) are represented by
+                potentially recursive nodes directed into each member of S,
+                and deletions are represented by a parallel set of nodes, with
+                1-1 connections to S and I allowing for members of S to be
+                ”skipped” (as seen in figure 4). Each end of the model is
+                capped with a start and end node. All sequences in the multiple
+                alignment set can be mapped as a path through the HMM, and
+                the chance that a sequence passes through a given node, along
+                with what node it transitions from and too can be used to
+                calculate the probabilities of a given transition. All transition
+                chances can be mapped to a matrix, where 0 corresponds to
+                a forbidden change, if a sequence doesn’t correspond well to
+                the matrix, then it has a worse alignment [48].
+                </p>
+            </div>
+            
+        </div>
+        <h3 onclick="toggle_div(`qsandhs`)" class="title primary-head">III. Questions and Hypotheses</h3>
+        <div id="qsandhs">
+            <p>
+            <strong>Question : </strong>Can an auto-arranging directed graphs approach
+            compete with more traditional Lempel-Ziv methods in the field
+            of reference-based genome compression?
+            </p>
+            <p>
+            <strong>Null Hypothesis : </strong>Directed graphs in reference-based genome
+            compression databases cannot compete with similar methods
+            of compression, in alignment, or typical measures of compression performance.
+            </p>
+            <p>
+            <strong>Alternate-Hypothesis : </strong>Directed graphs in reference-based
+            genome compression databases can compete with similar
+            methods of compression, in alignment, or typical measures of
+            compression performance. 
+            </p>
+            <p>
+            <strong>Secondary-Hypothesis : </strong>Directed graphs in reference-based compression can eventually compete
+            with similar methods of compression, as more genomes are
+            added to the initial state of the database.
+            </p>
+        </div>
+        <h3 onclick="toggle_div(`methods`)" class="title primary-head">IV. Methodology</h3>
+        <div id="methods">
+            <h4 onclick="toggle_div(`methods-artefact`)" class="title secondary-head">A. Artefact</h4>
+            <div id="methods-artefact">
+                <p>
+                Our proposed artefact for genome compression will consist
+                of several stages, alignment of the target genome, first-time
+                compression, database ”downtime” processes (including re-alignment, 
+                and secondary referencing), and decompression.
+                <ol>
+                    <li> Rough Alignment: When a target genome enters the
+                    database, an alignment heuristic needs to occur to find a
+                    suitable, but not necessarily optimal, reference genome for
+                    the compression phase. Context may be given for the starting search area, 
+                    in the form of potentially related genomes.
+                    Alternatively, a random genome is selected in the graph as a
+                    starting point. A BLAST-like [44] alignment algorithm is run
+                    comparing the target against the potential genome, producing
+                    a similarity score, if the score overcomes a threshold then
+                    initial compression can take place. In the likely case that the
+                    first choice does not overcome the threshold, the difference
+                    between the actual score and the required one, along with
+                    the graph’s weights between nodes (similarity scores between
+                    genomes in the database), can be used to predict the distance
+                    to ”jump” to the next genome alignment. Using previously
+                    calculated scores, we can guide our search area, until the
+                    threshold is met. If the threshold is never met, then the file
+                    has to be stored in its 2-bit format until a further downtime
+                    search is performed. </li>
+                    <li> 
+                     Compression: Once the target genome has found a
+                    suitable reference, the compression phase follows the typical
+                    reference-based approach.
+                        <ul>
+                            <li> Factorise - Using LZSS [29], the target sequence can be
+                            represented as a series of matches with the reference,
+                            and literals where matches can’t be found. The key
+                            difference to its predecessor, LZ77, is that references
+                            must meet a threshold where the reference takes up less
+                            space than simply storing the literal, thus never increasing
+                            the storage costs of a given sub-string. </li>
+                            <li> Encode - Huffman coding, a form of entropy encoding,
+                            can be used to compress the factors further, assigning the
+                            individual bases and groups of bases specific bits based
+                            on their frequency in the factor [50]. There is a potential
+                            for arithmetic encoding to perform better (compression
+                            ratio-wise) due to the small alphabet size and its more accurate 
+                            approximations of probabilities, however, it takes
+                            a performance hit in compression/decompression speeds
+                            as a result and has an added level of complexity.</li>
+                        </ul>
+                    </li>
+                    <li> Downtime processes: During database downtime, the
+                    previously selected reference’s neighbours are more scrutinously aligned 
+                    using a Needleman-Wunsch [35] style matrix,
+                    searching for better matches for compression. If one is found,
+                    then the database can re-compress the target in the context
+                    of the new reference, and re-arrange the graph to reflect the
+                    new connections and weights. Regions of the target that are
+                    stored as literals can also be compared to its neighbours in an
+                    attempt to find secondary references to further compress the
+                    sequence, using the LZSS approach once more to find these
+                    factors. </li>
+                </ol>
+                </p>
+            </div>
+            <h4 onclick="toggle_div(`methods-devcycle`)" class="title secondary-head">B. Development Cycle</h4>
+            <div id="methods-devcycle">
+                <p>
+                Due to the complexity of this project, with many phases to
+                the algorithm, each having a fair amount of parts, an Agile
+                approach will suit its development. Through the use of a
+                KanBan board, tracking each part’s progress becomes far more
+                intuitive, and allows for us to work on several aspects of the
+                program at any given time if needs be. Moreover, the artefact is
+                easily broken down into its constituent parts as a large amount
+                follow dynamic programming philosophies, and can easily be
+                formatted into a timeline and thus sprint plan. Compared to
+                an approach like waterfall, the flexibility Agile provides will
+                aid in the iterative process of development, optimisation, and
+                testing, which will almost certainly require changes to the
+                initial plan, redesigns, and rewrites throughout the process,
+                something its alternative is not well-suited for.
+                </p>
+                <p>
+                Through the use of Git/Github [2], the project will be
+                version-controlled to avoid any single issue or change causing
+                large issues in the development cycle. It also allows a pipeline
+                to be set up for testing code before commits to a main branch,
+                so we can maintain a working ”production” and development
+                copy of the entire project, while also acting as a secondary
+                backup of any work done.
+                </p>
+                <p>
+                The main language used throughout the project is C++, in
+                conjunction with CMake and the Visual Studio development
+                platform. C++ was chosen for its potential for fast and optimised code, 
+                but its ”simplicity” when compared to languages
+                like C or alternative low-level languages, however, this comes
+                with the requirement of CMake, not only for cross-platform
+                compilation, but also as it allows for Unit testing.
+                </p>
+                <p>
+                In short, Unit tests are a contract of sorts which is assigned
+                to a given function (or unit) of code, ensuring that it always
+                outputs the expected results for a given input. Ideally, any
+                function should be testable, which encourages proper practices
+                like having no side-effects or multiple-purpose functions, however, this 
+                is not always the case. For this project in particular,
+                unit tests should be able to cover up to 95% of the code base,
+                and with a well-implemented Git pipeline, will always ensure
+                that the code runs as expected by the tests. These tests can also
+                be used to ensure that expected behaviour with invalid inputs
+                occurs, that multiple units work together as expected, and to
+                identify the units that need optimising through benchmarks.
+                Given these requirements, Unit tests will be written using the
+                Google Benchmarks CPP library [51], the standard for benchmarking and testing units of code.
+                </p>
+            </div>
+            <h4 onclick="toggle_div(`methods-tests`)" class="title secondary-head">C. Tests and Data</h4>
+            <div id="methods-tests">
+                <h5 onclick="toggle_div(`methods-tests-tanda`)" class="title tertiary-head">1) Tests and Analysis</h5>
+                <div id="methods-tests-tanda">
+                    <p>
+                    This study seeks to measure our artefact against GDC2 [1], due to its similarities to our
+                    algorithm. While it isn’t state of the art, being released in
+                    2015, it makes use of LZSS [29], heuristic alignment, entropy
+                    encoding (although better), and secondary referencing, much
+                    like our proposed solution. However, the authors did opt for
+                    second-order referencing and a few other optimisations, and so
+                    while we don’t expect to be particularly competitive, the data
+                    collected will help us decide whether or not the concept has
+                    potential for future research and thus, compression benefits.
+                    </p>
+                    <p>
+                    As mentioned previously, we will collect data in several
+                    standard catagories, including Compression/Decompression
+                    speeds, Compression/Decompression memory, and Compression ratio. 
+                    For each, we will use a dataset of 2 simple bacteria
+                    species (as explained below IV-C2), containing 40 different
+                    genomes each, testing against both programs 100 times for
+                    a total of 8000 compressions each. Measurements from each
+                    category will be analysed using paired t-tests (i.e. GDC2’s
+                    against our compression memory) to give a statistical result
+                    with 0.2 error probability and 0.2 effect size, as determined
+                    by GPower [52]. Mahalanobis distances will be calculated to
+                    gauge the distribution of results in a given category [53],
+                    allowing us to identify if potential outliers exist, followed
+                    by Chi-Square to determine whether a given outlier is due
+                    to chance or not [54]. Following this, t-tests will be
+                    calculated to determine the mean difference between each
+                    approach [55]. 
+                    </p>
+                    <p>
+                    The data can be normalised against GDC2,
+                    giving a clearer idea of whether a fully optimised version
+                    of the algorithm would improve in specific categories if it
+                    performed roughly on par with its predecessor.
+                    Data collected will be processed using R (available on
+                    the studies repository [2]), reading in output files generated
+                    by the artefact, and parsing them to analyse. Mahalanobis
+                    distances and Chi-Square are performed for tests of the same
+                    bacterial data sets to ensure that results can be used to prove
+                    the alt-hypothesis, and t-tests are performed between the two
+                    programs results.
+                    </p>
+
+                    <!--ADD R CODE AS EMBED-->
+
+                    <p>
+                    All tests will be done using rented CPU time on a carefully
+                    selected server, to remove another potential for error. While
+                    it would be similar (and less expensive) to run it on our
+                    machines (either in a virtual machine or local with controlled
+                    conditions), the potential margin for error is higher than that of
+                    a server as its a less controlled environment, and it stops any
+                    other use of the machine in the meantime. For these reasons,
+                    we’ll control all these conditions as best as possible, to provide
+                    a fair test.
+                    </p>
+                    <p>
+                    One potential issue is the 2 phase system that our proposed
+                    method follows, as initial compression could be faster but
+                    worse, and while the downtime processes should make up
+                    for some of the initial compression weaknesses, the increased
+                    workload does make for a more complex, and most likely
+                    slower, overall program. This may require more thorough
+                    testing of independent parts, which while done with unit
+                    benchmarks, is not fully analysed in this study.#
+                    </p>
+                    <p>
+                    There’s also an element of randomness with initial selection
+                    from the graph, and as such a higher sample amount might
+                    be preferred to give a smaller potential for error in testing,
+                    however, these programs do not have the fastest run time, and
+                    CPU time can get expensive, with one estimate from HPC
+                    being £30 monthly for a system with 4 cpu cores and 12Gb of
+                    RAM [56]. The physical cores are the more expensive recourse
+                    here but less required, and the increased RAM requirements
+                    for larger genomes, alignment calculations, and larger graphs
+                    have less of an effect on overall cost.
+                    </p>
+                </div>
+                <h5 onclick="toggle_div(`methods-tests-data`)" class="title tertiary-head">2) Data sets</h5>
+                <div id="methods-tests-data">
+                    <p>
+                    When it comes to genomes, smaller is usually
+                    better for testing purposes, as they contain less data and
+                    thus run faster, however, tend to have less repetition due to
+                    statistics as a shorter string will have fewer possible alterations
+                    and mutations, and those diverge relatively quickly from a
+                    common ancestor. This is especially true among bacteria,
+                    which replicate fairly frequently (every 20-60 mins), giving
+                    them an uncanny ability to adapt and evolve to environmental
+                    pressures, and thus a rapidly diverging genetic profile.
+                    </p>
+                    <p>
+                    For this reason, the selection of genomes is fundamental
+                    to ensuring the algorithm is properly tested, as too much
+                    genetic relation will lead to results that aren’t representative
+                    of the algorithm or normal use case, and too little will make
+                    the algorithm far too ineffective to see significant results.
+                    For this reason, I’ve currently decided to use a strain of
+                    E.coli with a highly related species consisting of 34 serotypes
+                    (”subspecies”), and a selection of Staphylococcus subspecies.
+                    </p>
+                    <p>
+                    E.coli, and Shigella are rather similar genetically, with
+                    Shigella being a close evolutionary species to Escherichia [57],
+                    this is due to E.coli being badly classified as a species (with
+                    strains sharing as low as 20% of their genome [58]) as it
+                    contains a huge amount of bacteria with high diversity. Both
+                    have a very similar structure, being Gram-negative (simply
+                    put, they have an inner cell wall), rod-shaped, non-sporing, and
+                    able to switch between respiration and fermentation to produce
+                    energy, depending on the supply of oxygen (with/without
+                    respectively) in their environment (facultative anaerobic) [59],
+                    [60]. It could, and has been, argued that Shigella should be
+                    reclassified as a species of E.coli (specifically the K12 strain
+                    MG1655) [61], but due to E.colis medical importance, it has
+                    not been changed from a species to a genus, and thus Shigella
+                    remain its own species. For this study, their relatedness works
+                    well, as the E.coli K12 strain can be used as a reference for
+                    the Shigella serotypes but the diversity should still allow for
+                    an improvement through secondary referencing.
+                    </p>
+                    <p>
+                    Staphylococcus is a genus, a less strict group than species
+                    (except when compared to E.coli), whos members are identifiable 
+                    by their spherical shape (resembling bunches of grapes),
+                    gram-positive, and facultitive anaerobic nature. It consists of
+                    at least 43 species [62], that can be classified into 11 [63]
+                    (originally 12 [64]), or 3 groups. Using the 3 group system
+                    (which are defined by their main hosts and behaviours), it
+                    seems most appropriate to go with the largest group, A, which
+                    consists of species that form colonies on human skin [65].
+                    While the least strict, it provides a related but still diverse set
+                    of test data, with many sub-species to pick from, without the
+                    broadness of the whole genus.
+                    </p>
+                    <p>
+                    All data used is accessed and downloaded from the National
+                    Center for Biotechnology Information (NCBI), an official USA
+                    government institution, and a public source of data and tools
+                    for and around biological sequences. All genomes were accessed 
+                    at https://www.ncbi.nlm.nih.gov/datasets/genome/ [66]
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h3 onclick="toggle_div(`ethics`)" class="title primary-head">V. Ethics</h3>
+        <div id="ethics">
+            <p>
+            Typically, I would not associate myself with any philosophy,
+            however my views best align with a pragmatic deductivism,
+            seeing research as a way to push us forward and thus should
+            be guided by the practical needs of a population, and that
+            we should not make assumptions when it comes to truth.
+            This comes with the caveat that our truth may not be THE
+            truth, and we could be building on hundreds of years of false
+            premises and theories that work but may not reflect reality. In
+            the case of this study, this caveat has very little weight, as it’s
+            a falsifiable result that either will or will not improve other
+            proposed solutions, but I still chose to clarify this belief.
+            Due to the nature of this study, no human participants will
+            be required in any capacity for the research and thus most
+            Ethical questions are avoided, however, there is a possibility
+            for ”weaponisation”, not by the military, but by corporations
+            and government agencies.
+            </p>
+            <p>
+            Firstly, no human genomes will be used in any capacity,
+            despite the lack of easily identifiable information. With the
+            recent 23&Me hacks [67], the storage of human biological
+            data (in this case with connected identifiable information) is
+            fresh on the mind of many, including me, as these genomes
+            have certain biomarkers allowing ethnicity, health conditions,
+            and almost all other physical aspects to be identified [68].
+            While the average person cannot parse this data out of a
+            sequence, the technology exists as demonstrated by these
+            DNA heritage companies, which over time could become more
+            commercially available. In this same vein, these very same
+            biomarkers could be used by companies like health insurance
+            providers to identify who may be susceptible to any and all
+            health conditions, potentially even going as far as to offer
+            rates dependent on the likelihood of developing conditions,
+            or turning down customers entirely. I take issue with this,
+            as I am particularly pro-privacy, and thus see no room for
+            this kind of exploitative behaviour that could be used to
+            discriminate against not only health but also other factors, even
+            those not known to the individual. On the flip side, healthcare
+            providers or law enforcement could use the sequencing data
+            of an individual or related individual for more noble means,
+            like helping to narrow down probable suspects for a health
+            issue or crime [69] ((and has been, like CODIS [70]), the US
+            genome database), and solve an issue faster, helping people
+            and save the time of these over-worked sectors. Overall, most
+            other papers on this subject take no consideration into the use
+            of human DNA, however, to uphold my standards, I will avoid
+            them entirely
+            </p>
+        </div>
+        <h3 onclick="toggle_div(`future`)" class="title primary-head">VI. Future works</h3>
+        <div id="future">
+            <p>
+            This study aims to determine whether the representation of
+            a database as a graph can help provide more context to alignment 
+            and compression of genomes, and identify any trade-offs
+            when using graphs to inform a faster initial compression.
+            There is a few unanswered questions that could be left
+            after this studies completion, some of which were touched
+            on previously in this proposal. These include:
+            <ul>
+                <li> Testing - Through a more invasive set of tests, a greater
+                idea of the performance and impact of each individual
+                component (specifically the graph, and the two stage
+                compression process). This could be done through A-B
+                testing, using only the graph, only the two stage process,
+                and both, as compared to a traditional approach to the
+                problem. </li>
+                <li> Performance - The design of the artefact is not meant
+                to compete with more mature and developed tools of
+                this nature, however with more time for development
+                and optimisation, it could provide a tool more directly
+                testable against the standards of the field. Specifically,
+                the compression stage itself is a very novel design when
+                compared to GDC2, avoiding complexities to look deeper
+                into the other stages of the process.</li>
+                <li> Data set - Bacteria are pretty diverse and have small
+                genomes, as such, may not be representative of a typical
+                data set, while we researched the selection heavily, it’s
+                clear that longer, less diverse, and alternative kingdoms
+                of genomes would be a worthwhile test. Using DNA from
+                mammals, and other groups would yield a better idea of
+                the programs strengths and weaknesses, and the more that
+                variety is increase, the more we can know about future
+                impact of this study. </li>
+                <li> Philosophy/Ethics - In a sense, my ethical stance on
+                human genomes may hold back testing one of the largest
+                use cases for this technology, while I wont change my
+                position to increase the potential for impact of this study,
+                I’m sure other academics could test and determine its
+                proficiency specifically for our species.</li>
+            </ul>
+            </p>
+        </div>
+        <h3 onclick="toggle_div(`references`)" class="title primary-head">References</h3>
+        <div id="references">
+            [1] S. Deorowicz, A. Danek, and M. Niemiec, “Gdc 2: Compression of large
+            collections of genomes,” Scientific reports, vol. 5, no. 1, 2015. <br>
+            [2] O. Schofield, “y3-dstn,” Aug 2023.<br>
+            [3] Y. Shin, “Whole genome sequencing cost 2023,” Dec 2022.<br>
+            [4] N. H. G. R. Institute, “Sequencing human genome costs.”<br>
+            [5] A. Doricchi, C. M. Platnich, A. Gimpel, F. Horn, M. Earle, G. Lanzavecchia, 
+            A. L. Cortajarena, L. M. Liz-Marz´an, N. Liu, R. Heckel, et al.,
+            “Emerging approaches to dna data storage: Challenges and prospects,”
+            ACS nano, vol. 16, no. 11, pp. 17552–17571, 2022.<br>
+            [6] S. Institute, “How do you sequence over 240,000 whole human
+            genomes?,” Sep 2022.<br>
+            [7] A. Gabrich, “How much dna do humans share with other animals?.”<br>
+            [8] A. Biolabs, “How much dna do we share?.”<br>
+            [9] Y. Liang, C. Grønbæk, P. Fariselli, and A. Krogh, “Context dependency
+            of nucleotide probabilities and variants in human dna,” BMC genomics,
+            vol. 23, no. 1, pp. 1–15, 2022.<br>
+            [10] U. Government, DNA structure. Jan 2006.<br>
+            [11] A. Travers and G. Muskhelishvili, “Dna structure and function,” The
+            FEBS journal, vol. 282, no. 12, pp. 2279–2295, 2015.<br>
+            [12] B. S. Weir, A. D. Anderson, and A. B. Hepler, “Genetic relatedness
+            analysis: modern data and new challenges,” Nature Reviews Genetics,
+            vol. 7, no. 10, pp. 771–780, 2006.<br>
+            [13] . G. P. Consortium et al., “A global reference for human genetic
+            variation,” Nature, vol. 526, no. 7571, p. 68, 2015.<br>
+            [14] S. Grumbach and F. Tahi, “Compression of dna sequences,” in [Proceedings] 
+            DCC93: Data Compression Conference, pp. 340–350, IEEE 1993.<br>
+            [15] A. Piovesan, F. Antonaros, L. Vitale, P. Strippoli, M. C. Pelleri, and
+            M. Caracausi, “Human protein-coding genes and gene feature statistics
+            in 2019,” BMC research notes, vol. 12, no. 1, pp. 1–5, 2019.<br>
+            [16] P. C. Kirchberger, M. L. Schmidt, and H. Ochman, “The ingenuity of
+            bacterial genomes,” Annual Review of Microbiology, vol. 74, pp. 815–
+            834, 2020.<br>
+            [17] NHS, “Non-coding dna,” May 2020.<br>
+            [18] J. Ziv and A. Lempel, “A universal algorithm for sequential data
+            compression,” IEEE Transactions on information theory, vol. 23, no. 3,
+            pp. 337–343, 1977.<br>
+            [19] A. J. Pinho, P. J. Ferreira, A. J. Neves, and C. A. Bastos, “On the
+            representability of complete genomes by multiple competing finite-
+            context (markov) models,” PloS one, vol. 6, no. 6, p. e21588, 2011.<br>
+            [20] X. Chen, S. Kwong, and M. Li, “A compression algorithm for dna
+            sequences and its applications in genome comparison,” in Proceedings of
+            the fourth annual international conference on Computational molecular
+            biology, p. 107, 2000.<br>
+            [21] D. Pratas, A. J. Pinho, and P. J. Ferreira, “Efficient compression of
+            genomic sequences,” in 2016 Data compression conference (DCC),
+            pp. 231–240, IEEE, 2016.<br>
+            [22] D. A. Huffman, “A method for the construction of minimum-redundancy
+            codes,” Proceedings of the IRE, vol. 40, no. 9, pp. 1098–1101.<br>
+            [23] S. Christley, Y. Lu, C. Li, and X. Xie, “Human genomes as email
+            attachments,” Bioinformatics, vol. 25, no. 2, pp. 274–275, 2009.<br>
+            [24] S. Kuruppu, S. J. Puglisi, and J. Zobel, “Relative lempel-ziv compression
+            of genomes for large-scale storage and retrieval,” in International
+            Symposium on String Processing and Information Retrieval, pp. 201–206, Springer, 2010.<br>
+            [25] C. Team, “The lz77 algorithm,” 1997.<br>
+            [26] S. Deorowicz and S. Grabowski, “Robust relative compression of
+            genomes with random access,” Bioinformatics, vol. 27, no. 21, pp. 2979–2986, 2011.<br>
+            [27] F. Collins, “Single nucleotide polymorphisms (snps),” Dec 2023.<br>
+            [28] S. Wandelt and U. Leser, “Fresco: Referential compression of highly
+            similar sequences,” IEEE/ACM Transactions on Computational Biology
+            and Bioinformatics, vol. 10, no. 5, pp. 1275–1288, 2013.<br>
+            [29] J. A. Storer and T. G. Szymanski, “Data compression via textual
+            substitution,” Journal of the ACM (JACM), vol. 29, no. 4, pp. 928–951, 1982.<br>
+            [30] H. Li, B. Handsaker, A. Wysoker, T. Fennell, J. Ruan, N. Homer,
+            G. Marth, G. Abecasis, R. Durbin, and . G. P. D. P. Subgroup, “The
+            sequence alignment/map format and samtools,” bioinformatics, vol. 25,
+            no. 16, pp. 2078–2079, 2009.<br>
+            [31] S. tools, Sequence Alignment/Map Format Specification. 2020.<br>
+            [32] replicon genetics, “Cigar strings explained,” Apr 2021.<br>
+            [33] LibreTexts, “3.3: Global alignment vs. local alignment vs. semi-global alignment,” Oct 2020.<br>
+            [34] S. Tamang, “Sequence alignment- definition, types, methods, uses,” Aug 2023.<br>
+            [35] S. B. Needleman and C. D. Wunsch, “A general method applicable to
+            the search for similarities in the amino acid sequence of two proteins,”
+            Journal of molecular biology, vol. 48, no. 3, pp. 443–453, 1970.<br>
+            [36] T. F. Smith, M. S. Waterman, et al., “Identification of common molecular
+            subsequences,” Journal of molecular biology, vol. 147, no. 1, pp. 195-197, 1981.<br>
+            [37] W.-K. Sung, Algorithms in bioinformatics: A practical introduction.
+            CRC Press, 2009.<br>
+            [38] W. J. Masek and M. S. Paterson, “A faster algorithm computing string
+            edit distances,” Journal of Computer and System sciences, vol. 20, no. 1,
+            pp. 18–31, 1980.<br>
+            [39] Wikipedia, Needleman-Wunsch. Apr 2014.<br>
+            [40] Wikipedia, Smith-Waterman. Dec 2016.<br>
+            [41] D. J. Lipman and W. R. Pearson, “Rapid and sensitive protein similarity
+            searches,” Science, vol. 227, no. 4693, pp. 1435–1441, 1985.<br>
+            [42] W. R. Pearson and D. J. Lipman, “Improved tools for biological sequence
+            comparison.,” Proceedings of the National Academy of Sciences, vol. 85,
+            no. 8, pp. 2444–2448, 1988.<br>
+            [43] S. F. Altschul, W. Gish, W. Miller, E. W. Myers, and D. J. Lipman,
+            “Basic local alignment search tool,” Journal of molecular biology,
+            vol. 215, no. 3, pp. 403–410, 1990.<br>
+            [44] NCBI, “Blast: Basic local alignment search tool,” 2023.
+            [45] N. L. of Medicine, “Nucleotide blast: Search nucleotide databases using
+            a nucleotide query.”<br>
+            [46] S. R. Eddy, “Hidden markov models,” Current opinion in structural
+            biology, vol. 6, no. 3, pp. 361–365, 1996.<br>
+            [47] C. B. Do, M. S. Mahabhashyam, M. Brudno, and S. Batzoglou, “Probcons: 
+            Probabilistic consistency-based multiple sequence alignment,”
+            Genome research, vol. 15, no. 2, pp. 330–340, 2005.<br>
+            [48] D. W. Mount, “Using hidden markov models to align multiple sequences.,” 
+            Cold Spring Harbor Protocols, vol. 2009, no. 7, pp. pdb–top41, 2009.<br>
+            [49] B.-J. Yoon, “Hidden markov models and their applications in biological
+            sequence analysis,” Current genomics, vol. 10, pp. 402–15, 09 2009.<br>
+            [50] A. Al-Okaily, B. Almarri, S. Al Yami, and C.-H. Huang, “Toward a
+            better compression for dna sequences using huffman encoding,” Journal
+            of Computational Biology, vol. 24, no. 4, pp. 280–288, 2017.<br>
+            [51] Google, “Google benchmark,” May 2022.<br>
+            [52] A. Buchner, E. Erdfelder, F. Faul, and A.-G. Lang, “G*power,” Dec
+            2007.<br>
+            [53] P. MAHALANOBIS, “On the generalised distance in statistics. 12,”
+            1936.<br>
+            [54] U. of Utah, “Chi-square - sociology 3112 - department of sociology -
+            the university of utah,” 2019.<br>
+            [55] S. Solutions, “Paired sample t-test.”<br>
+            [56] H. Center, “Calculate your cost.”<br>
+            [57] R. Lan and P. R. Reeves, “Escherichia coli in disguise: molecular origins
+            of shigella,” Microbes and infection, vol. 4, no. 11, pp. 1125–1132, 2002.<br>
+            [58] O. Lukjancenko, T. M. Wassenaar, and D. W. Ussery, “Comparison of
+            61 sequenced escherichia coli genomes,” Microbial ecology, vol. 60,
+            pp. 708–720, 2010.<br>
+            [59] E. Yabuuchi, “Bacillus dysentericus (sic) 1897 was the first taxonomic
+            rather than bacillus dysenteriae 1898.,” International journal of system 
+            and evolutionary microbiology, vol. 52, no. 3, pp. 1041–1041, 2002.<br>
+            [60] O. Tenaillon, D. Skurnik, B. Picard, and E. Denamur, “The population
+            genetics of commensal escherichia coli,” Nature reviews microbiology,
+            vol. 8, no. 3, pp. 207–217, 2010.<br>
+            [61] F. Yang, J. Yang, X. Zhang, L. Chen, Y. Jiang, Y. Yan, X. Tang,
+            J. Wang, Z. Xiong, J. Dong, et al., “Genome dynamics and diversity
+            of shigella species, the etiologic agents of bacillary dysentery,” Nucleic
+            acids research, vol. 33, no. 19, pp. 6445–6458, 2005.<br>
+            [62] L. G. Harris, S. Foster, R. G. Richards, et al., “An introduction to
+            staphylococcus aureus, and techniques for identifying and quantifying
+            s. aureus adhesins in relation to adhesion to biomaterials: review,” Eur
+            Cell Mater, vol. 4, no. 3, pp. 100–20, 2002.<br>
+            [63] W. E. Kloos, D. N. Ballard, C. G. George, J. A. Webster, R. J. Hubner,
+            W. Ludwig, K. H. Schleifer, F. Fiedler, and K. Schubert, “Delimiting
+            the genus staphylococcus through description of macrococcus caseolyticus 
+            gen. nov., comb. nov. and macrococcus equipercicus sp. nov.,
+            macrococcus bovicus sp. nov. and macrococcus carouselicus sp. nov.,”
+            International Journal of Systematic and Evolutionary Microbiology,
+            vol. 48, no. 3, pp. 859–877, 1998.<br>
+            [64] T. Takahashi, I. Satoh, and N. Kikuchi, “Phylogenetic relationships of
+            38 taxa of the genus staphylococcus based on 16s rrna gene sequence analysis,” 
+            International Journal of Systematic and Evolutionary Microbiology, vol. 49, no. 2, pp. 725–728, 1999.<br>
+            [65] R. Coates-Brown, J. C. Moran, P. Pongchaikul, A. C. Darby, and
+            M. J. Horsburgh, “Comparative genomics of staphylococcus reveals
+            determinants of speciation and diversification of antimicrobial defense,”
+            Frontiers in microbiology, vol. 9, p. 2753, 2018.<br>
+            [66] N. C. of Biotechnology Information, “Ncbi genome database.”<br>
+            [67] E. Helmore, “Genetic testing firm 23andme admits hackers accessed dna
+            data of 7m users,” The Guardian, Dec 2023.<br>
+            [68] N. I. of Environmental Health Sciences, “Biomarkers,” Aug 2023.<br>
+            [69] N. I. of Justice, Office for Victims of Crime Advocating for the Fair
+            Treatment of Crime Victims. 1996.<br>
+            [70] B. for Justice Statistics, “Combined dna index system (codis) — bureau
+            of justice statistics.<br>
+        </div>
+
+        
         
 
     </section>
