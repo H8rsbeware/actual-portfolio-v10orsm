@@ -47,6 +47,9 @@ backend.get("/personal.html", (req, res) => {
     //updates stats.
     siege();
 })
+backend.get("/pilot.html", (req, res) => {    
+    res.sendFile(`${fp}/pilot.html`);
+})
 backend.get("/", (req,res) => {
     res.sendFile(`${fp}/index.html`);
 })
