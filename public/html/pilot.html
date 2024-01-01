@@ -95,11 +95,20 @@
         &ensp;<a href="#ethics">V. Ethics</a> <br>
         &ensp;<a href="#future">VI. Future Works</a> <br>
         &ensp;<a href="#references">References</a> <br>
+        &ensp;<a href="#appendex">Appendex</a> <br>
+        &ensp;&ensp;<a href="#code">R code for Stats</a> <br>
+        &ensp;&ensp;<a href="#uml">UML for Artefact</a> <br>
+        <br>
+        <a href="#pilot">Pilot study</a> <br>
+        &ensp;<a href="#pilot-what">What is my Pilot study</a> <br>
+        &ensp;<a href="#pilot-results">Results</a> <br>
 
         <p>You can also click headings to hide contents below</p>        
     </div>
     
-    <br><br>
+    <br>
+    <hr>
+    <br>
 
     <h2 onclick="toggle_div(`proposal`)" class="title p_title">Proposal</h2>
     <section id="proposal">
@@ -217,6 +226,10 @@
                 knowledge, one such example is DNAEnc3 [19], explained in
                 II-B1.
                 </p>
+                <figure class="center-image">
+                    <img src="../other/images/DNA-structure-and-bases.png" style="width:20%;" >
+                    <figcaption>Fig. 1: Basic structure of DNA, from [10]</figcaption>
+                </figure>
             </div>
             <h4 onclick="toggle_div(`background-biocompression`)" class="title secondary-head">B. Biological Compression</h4>
             <div id="background-biocompression">
@@ -269,6 +282,10 @@
                     would also find a use in similarity alignment, which we explore
                     further in the literature review II-C.
                     </p>
+                    <figure class="center-image">
+                        <img src="../other/images/lz-compression.png" style="width:30%;" >
+                        <figcaption>Fig. 2: Lempel-Ziv universal sequence algorithm</figcaption>
+                    </figure>
                 </div>
                 <h5 onclick="toggle_div(`background-biocompression-refbased`)" class="title tertiary-head">2) Reference-Based</h5>
                 <div id="background-biocompression-refbased">
@@ -433,6 +450,13 @@
                     highest number (H), represents the H-best alignment.</li>
                 </ul>
                 </p>
+
+                <figure class="center-image">
+                    <img src="../other/images/Needleman-Wunsch_pairwise_sequence_alignment.png" style="width:15%;">
+                    <img src="../other/images/Smith-Waterman-Algorithm-Example-Step3.png" style="padding-left:1%;width:13%;">
+                    <figcaption>Fig. 3: Needlman-Wunsch and Smith-Waterman algorithms(respectively), from [39], [40]</figcaption>
+                </figure>
+                
                 <p>
                 Due to the aforementioned complexity of these algorithms,
                 many heuristics have been proposed and used to speed up the
@@ -482,7 +506,10 @@
                 the matrix, then it has a worse alignment [48].
                 </p>
             </div>
-            
+            <figure class="center-image">
+                <img src="../other/images/profile-hmm.png" style="width:40%;" >
+                <figcaption>Fig. 4: The profile Hidden Markov Model (figure from [49])</figcaption>
+            </figure>
         </div>
         <h3 onclick="toggle_div(`qsandhs`)" class="title primary-head">III. Questions and Hypotheses</h3>
         <div id="qsandhs">
@@ -667,16 +694,14 @@
                     of the algorithm would improve in specific categories if it
                     performed roughly on par with its predecessor.
                     Data collected will be processed using R (available on
-                    the studies repository [2]), reading in output files generated
+                    the studies repository [2], and <a class="link" href="#code">here</a>), reading in output files generated
                     by the artefact, and parsing them to analyse. Mahalanobis
                     distances and Chi-Square are performed for tests of the same
                     bacterial data sets to ensure that results can be used to prove
                     the alt-hypothesis, and t-tests are performed between the two
                     programs results.
                     </p>
-
-                    <!--ADD R CODE AS EMBED-->
-
+                    
                     <p>
                     All tests will be done using rented CPU time on a carefully
                     selected server, to remove another potential for error. While
@@ -1032,10 +1057,80 @@
             [70] B. for Justice Statistics, “Combined dna index system (codis) — bureau
             of justice statistics.<br>
         </div>
-
+        <br>
+        <h3 onclick="toggle_div(`appendex`)" class="title">Appendex</h3>
+        <div id="appendex">
+            <h4 class="title" onclick="toggle_div(`code`)">R code for statistical tests</h4>
+            <div class="center-image"><img id="code" class="code-image" src="../other/images/code_snippet.png" style="width:70%"></div>
+            <h4 class="title" onclick="toggle_div(`uml`)">UML for flow of Artefact</h4>
+            <div class="center-image"><img id="uml" class="code-image" src="../other/images/dag-uml-light.png" style="width:70%;"></div>
+        </div>
         
-        
 
+    </section>
+    <br>
+    <hr>
+    <br>
+    <h2 onclick="toggle_div(`pilot`)" class="title p_title">Pilot Study</h2>
+    <section id="pilot">
+        <h3 onclick="toggle_div(`pilot-what`)" class="title">What was my pilot study?</h3>
+        <p id="pilot-what">
+
+            The aim of my pilot study was to answer the question <strong>"How effective is a basic LZSS approach when compared to GDC2, for referencially compressing DNA?"</strong>, as well as 
+            determine the feasibility of my dissertation by creating a basic reference based compression approach to with the following components:
+            <ul>
+                <li><strong>File ingest -</strong> Taking in a FASTA file, containing the bases of a sequence, and encoding them as 2 bits per base</li>
+                <li><strong>Alignment -</strong> Including matrix construction/filling, and then a trace back algorithm that provides a score, accounting for gaps and areas of similarity</li>
+                <li><strong>Compression -</strong> Both for single and two strand compression, reducing an input into a sequence of literals and references</li>
+                <li><strong>Graph -</strong> While not used, I created an implementation of the graph thats edges correspond to alignment scores, nodes represent genomes, and edge direction shows what a nodes referencing</li>
+            </ul>
+            I hypothesised that my algorithm wouldnt come close with such a mature solution in the field, but I wanted to guage how much of an improvement all the specific optimisation made by GDC2's authors made to their approach.
+            <br>
+            My algorithm and GDC2 were then both tested using a smaller version of my full dataset, just E.coli K12 and 2 Shigella serotypes, to determine both algorithms <strong>compression ratio, compression speed, and decompression speed</strong>. 
+             I ran the tests 40 times, locally, calculating the average for each metric, and also performed paired t-test between the results to determine the mean difference between the algorithms.
+        </p>
+
+        <h3 onclick="toggle_div(`pilot-results`)" class="title">Results</h3>
+        <div id="pilot-results">
+            <h4>Averages</h4>
+            <table>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Compression Ratio (%)</th>
+                    <th>Compression Speed (sec)</th>
+                    <th>Decompression Speed (sec)</th>
+                </tr>
+                <tr>
+                    <td>Mine</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>GDC2</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+            <br>
+            <h4>T-tests</h4>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Compression Ratio (%)</th>
+                    <th>Compression Speed (sec)</th>
+                    <th>Decompression Speed (sec)</th>
+                </tr>
+                <tr>
+                    <td>Mean differences</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+            </table>
+        </div>
+        
     </section>
 
 

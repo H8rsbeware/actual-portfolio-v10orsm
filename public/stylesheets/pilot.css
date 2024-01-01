@@ -7,6 +7,7 @@
     --inverse: #c6fa9d;
     --blue: #4c5270;
     --shadowBlue: #343952;
+    --borderBlue: #272b3f;
 }
 
 /* https://fonts.google.com/specimen/Assistant -- OPEN USE LICENSE*/
@@ -196,4 +197,39 @@ nav ul{
 }
 #proposal p{
     padding-left: 2%;
+}
+
+.link{
+    color: var(--shadowinverse);
+
+}
+.code-image{
+    width:100%;
+}
+
+.center-image{
+    text-align: center;
+}
+
+#pilot{
+    padding: 2% 4%;
+}
+#pilot p{
+    /* padding-left: 2%; */
+}
+
+table {
+
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid var(--borderBlue);
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--shadowBlue);
 }
