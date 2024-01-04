@@ -233,3 +233,7 @@ td, th {
 tr:nth-child(even) {
     background-color: var(--shadowBlue);
 }
+
+#pilot a{
+    color: var(--inverse);
+}

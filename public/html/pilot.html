@@ -1072,7 +1072,7 @@
     <hr>
     <br>
     <h2 onclick="toggle_div(`pilot`)" class="title p_title">Pilot Study</h2>
-    <section id="pilot">
+    <section id="pilot" style="padding-bottom:15rem;">
         <h3 onclick="toggle_div(`pilot-what`)" class="title">What was my pilot study?</h3>
         <p id="pilot-what">
 
@@ -1081,58 +1081,187 @@
 
             My hypotheses are as follows:
             <ul>
-                <li><strong>Null Hypothesis -</strong> Sequence length has no effect on any factors </li>
+                <li><strong>Null Hypothesis -</strong> Sequence length has no statistically significant effect on any factors </li>
                 <li><strong>Alt Hypothesis -</strong> An increase in sequnce length will correlate to compression ratio improving for both algorithms, while encode and decode speed will reduce.</li>
             </ul>
-            <br>
-            In order to test these hypotheses, I will be using the following algorithms I developed:
+            My artefact used for testing consists of the following elements:
             <ul>
                 <li><strong>File ingest -</strong> Taking in a FASTA file, containing the bases of a sequence, and encoding them as 2 bits per base</li>
                 <li><strong>Single sequence LZSS -</strong> Typically what is thought of when discussing LZSS, this algorithm finds repeating factors in a single sequence (reference-free) and encodes them as references, although it doesnt account for palindromes or approximate repeats, it does represent a basic approach to the problem.</li>
                 <li><strong>Duel sequence LZSS -</strong> An adapted version of the LZSS algorithm, thats search buffer is filled using a reference sequence rather than the target (to be compressed) sequence. There are some inefficiencies, however, which will be discussed later.</li>
                 <li><strong>Decoding -</strong> Both implimentation of LZSS have slightly modified decoding algorithms that read references and determine the literals (original characters) that should replace them.</li>
             </ul>
+            Both implimentation of LZSS use the same file ingest algorithm and functions for converting the FASTA file to bases, thus the only dependent variables are those handling compression and decompression algorithms, providing a fair test.
         </p>
         <br>
         <h3 onclick="toggle_div(`pilot-method`)" class="title">Method</h3>
-        <p id="pilot-method">
+        <div id="pilot-method">
+            <!--
+                Tests, Stats, Dataset
 
-        </p>
+            -->
+            <h4 class="title">Test process</h4>
+            <p>
+                In order to test my hypotheses, the algorithms will be tested against sequences of lengths 50, 100, 150, 250 and 500 symbols (characters/bases in sequence), spliced from random points in bacteria genomes <a href="#">(as explained below)</a>. 
+                Using a range of lengths allows me to determine if there's a point where a given approach begins to outperform the other, or if one is consistently dominant, while the max length of 500 allows for a reduced runtime to ensure I can collect enough samples to provide statistically significant results.
+                <br><br>
+                Each sample will be run against both algorithms to provide a fair comparison, with the use of bacterial genomes to ensure tested sequences are representative of real world data, as opposed to randomly generated strings of symbols, and thus should contain repetition at a similar frequency to data tested in my dissertation.
+                <br><br>
+                For the reference-based approach, either a suitable reference sequence has to be picked, or we can use another splice of the same genome used to create the target sequence. For this pilot, I've opted for the former approach, as the latter is essentially just reference-free but with randomness introduced, reducing the fairness of my tests.
+                However, the reference sequence will still have to be spliced to the same size, this time from its start, as the runtime is dependent on the length of the reference sequence; thus if it is full length, the reference-based approach will be at an immediate disadvantage.             
+                <br><br>
+                My reference-based and reference-free solutions will both be tested for against the following metrics of compression:
+                <ul>
+                    <li>Compression Ratio</li>
+                    <li>Compression Speed</li>
+                    <li>Decompression Speed</li>
+                </ul>
+                I would expect compression ratio to improve as sequence length increases, as the chance of a suitible reference should increase with more possible subsequences avaliable, however this should come at the cost of both compression and decompression speed increasing.
+                <br>
+                With this pilot, I have excluded compression/decompression memory usage as a test, as my algorithms are not optimal and the are more difficult tests to conduct accurately.
+            </p>
+            <h4 class="title">Data sets</h4>
+            <p>
+                My dataset was collected from the <a href="https://www.ncbi.nlm.nih.gov/">National Center for Biotechnology Information (NCBI)</a>, and consist of the following genomes from the following species:
+                <ul>
+                    <li>Shigella (target) - Specifically the serotypes ("subspecies") <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000006925.2/">flexneri 2a str.301</a> and <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_020807325.1/"> sp. FC6507</a></li>
+                    <li>Escherichia coli (reference) - <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000005845.2/">str. K-12 substr. MG1655</a></li>
+                </ul>
+                These were chosen due to the close genetic relatedness of the Shigella species to E. coli K12 MG1655, as discussed in this <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1278947/">research paper</a>. 
+                Shigella is often considered a subspecies of this specific E. coli serotype as its a genetic decendent (which was also used to argue for E. colis reclassification to a genus), and thus E. coli acts as a perfect reference sequence for our two target serotypes.
+                <br><br>
+                Using two target genomes reduces the chance of close/repeat tests when randomly splicing subsequences for testing the two compression methods, especially as these genomes are only around 4Mb in size each, which is far smaller than the 3Gb of the average human genome. 
+                <br><br>
+                For reference-free, E. coli will not be used, and thus both algorithms will only be compressing Shigella, to ensure that our independent variables stay the same between tests.
+            </p>
+            <h4 class="title">Statistical analysis</h4>
+            <div>
+
+                <!--METRICS TTESTS AND MORE-->
+                For analysing the result from my study, I will be using a set one-tailed independent t-test to determine the mean difference between the two approaches, and if it is an increase or decrease, for each metric at each length of sequence.
+                <br><br>
+                As its a pilot study, I've decided on using an effect size and error probability of 0.5, maintaining a stastical power of 0.95, requiring me to conduct 45 tests at every length of sequence, on both algorithms <a href="gpower-analysis">(calculated by G*power)</a>. However, due to the smaller sample size, I will be also using Shapiro-Wilk's test for normality to ensure the validity of my t-tests.
+
+                <figure id="gpower-analysis"  class="center-image" style="padding-top: 2%;">
+                    <img src="../other/images/gpower-pilot.png" style="width:30rem">
+                    <figcaption>G* power - One tailed t-test</figcaption>
+                </figure>
+            </div>
+        </div>
 
         <h3 onclick="toggle_div(`pilot-results`)" class="title">Results</h3>
         <div id="pilot-results">
             <h4>Averages</h4>
             <table>
                 <tr>
-                    <th>Algorithm</th>
+                    <th>LZSS Algorithm</th>
+                    <th>Sequence Length</th>
                     <th>Compression Ratio (%)</th>
                     <th>Compression Speed (sec)</th>
                     <th>Decompression Speed (sec)</th>
                 </tr>
                 <tr>
-                    <td>LZSS (single)</td>
+                    <td rowspan="5">Reference-free</td>
+                    <td>50</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                 </tr>
                 <tr>
-                    <td>LZSS (duel)</td>
+                    <td>100</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                 </tr>
+                <tr>
+                    <td>150</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>250</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>                
+                <tr>
+                    <td>500</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="5">Reference-based</td>
+                    <td>50</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>150</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>250</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>                
+                <tr>
+                    <td>500</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+
             </table>
             <br>
             <h4>T-tests</h4>
             <table>
                 <tr>
                     <th></th>
+                    <th>Sequence Length</th>
                     <th>Compression Ratio (%)</th>
                     <th>Compression Speed (sec)</th>
                     <th>Decompression Speed (sec)</th>
                 </tr>
                 <tr>
-                    <td>Mean differences</td>
+                    <td rowspan="5">Mean differences</td>
+                    <td>50</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>150</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>250</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>                
+                <tr>
+                    <td>500</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
