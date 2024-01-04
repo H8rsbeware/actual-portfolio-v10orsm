@@ -1076,18 +1076,27 @@
         <h3 onclick="toggle_div(`pilot-what`)" class="title">What was my pilot study?</h3>
         <p id="pilot-what">
 
-            The aim of my pilot study was to answer the question <strong>"How effective is a basic LZSS approach when compared to GDC2, for referencially compressing DNA?"</strong>, as well as 
-            determine the feasibility of my dissertation by creating a basic reference based compression approach to with the following components:
+            The aim of my pilot study was to answer the question <strong>"How does Sequence Length Effect the Performance of Reference-free and Reference-based LZSS, in the Areas of Compression Ratio, and Encode/Decode Speed"</strong>, as well as 
+            determine the feasibility of my dissertation by creating basic versions of both the typical forms of sequence compression.
+
+            My hypotheses are as follows:
+            <ul>
+                <li><strong>Null Hypothesis -</strong> Sequence length has no effect on any factors </li>
+                <li><strong>Alt Hypothesis -</strong> An increase in sequnce length will correlate to compression ratio improving for both algorithms, while encode and decode speed will reduce.</li>
+            </ul>
+            <br>
+            In order to test these hypotheses, I will be using the following algorithms I developed:
             <ul>
                 <li><strong>File ingest -</strong> Taking in a FASTA file, containing the bases of a sequence, and encoding them as 2 bits per base</li>
-                <li><strong>Alignment -</strong> Including matrix construction/filling, and then a trace back algorithm that provides a score, accounting for gaps and areas of similarity</li>
-                <li><strong>Compression -</strong> Both for single and two strand compression, reducing an input into a sequence of literals and references</li>
-                <li><strong>Graph -</strong> While not used, I created an implementation of the graph thats edges correspond to alignment scores, nodes represent genomes, and edge direction shows what a nodes referencing</li>
+                <li><strong>Single sequence LZSS -</strong> Typically what is thought of when discussing LZSS, this algorithm finds repeating factors in a single sequence (reference-free) and encodes them as references, although it doesnt account for palindromes or approximate repeats, it does represent a basic approach to the problem.</li>
+                <li><strong>Duel sequence LZSS -</strong> An adapted version of the LZSS algorithm, thats search buffer is filled using a reference sequence rather than the target (to be compressed) sequence. There are some inefficiencies, however, which will be discussed later.</li>
+                <li><strong>Decoding -</strong> Both implimentation of LZSS have slightly modified decoding algorithms that read references and determine the literals (original characters) that should replace them.</li>
             </ul>
-            I hypothesised that my algorithm wouldnt come close with such a mature solution in the field, but I wanted to guage how much of an improvement all the specific optimisation made by GDC2's authors made to their approach.
-            <br>
-            My algorithm and GDC2 were then both tested using a smaller version of my full dataset, just E.coli K12 and 2 Shigella serotypes, to determine both algorithms <strong>compression ratio, compression speed, and decompression speed</strong>. 
-             I ran the tests 40 times, locally, calculating the average for each metric, and also performed paired t-test between the results to determine the mean difference between the algorithms.
+        </p>
+        <br>
+        <h3 onclick="toggle_div(`pilot-method`)" class="title">Method</h3>
+        <p id="pilot-method">
+
         </p>
 
         <h3 onclick="toggle_div(`pilot-results`)" class="title">Results</h3>
@@ -1101,13 +1110,13 @@
                     <th>Decompression Speed (sec)</th>
                 </tr>
                 <tr>
-                    <td>Mine</td>
+                    <td>LZSS (single)</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
                 </tr>
                 <tr>
-                    <td>GDC2</td>
+                    <td>LZSS (duel)</td>
                     <td>0</td>
                     <td>0</td>
                     <td>0</td>
