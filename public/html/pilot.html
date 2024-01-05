@@ -101,7 +101,12 @@
         <br>
         <a href="#pilot">Pilot study</a> <br>
         &ensp;<a href="#pilot-what">What is my Pilot study</a> <br>
+        &ensp;&ensp;<a href="#pilot-method">Method</a> <br>
+        &ensp;&ensp;<a href="#pilot-method-tests">Test process</a> <br>
+        &ensp;&ensp;<a href="#pilot-method-data">Data sets</a> <br>
+        &ensp;&ensp;<a href="#pilot-method-stats">Stats analysis</a> <br>
         &ensp;<a href="#pilot-results">Results</a> <br>
+        &ensp;&ensp;<a href="#pilot-results-analysis">Analysis</a> <br>
 
         <p>You can also click headings to hide contents below</p>        
     </div>
@@ -1101,7 +1106,7 @@
 
             -->
             <h4 class="title">Test process</h4>
-            <p>
+            <p id="pilot-method-tests">
                 In order to test my hypotheses, the algorithms will be tested against sequences of lengths 50, 100, 150, 250 and 500 symbols (characters/bases in sequence), spliced from random points in bacteria genomes <a href="#">(as explained below)</a>. 
                 Using a range of lengths allows me to determine if there's a point where a given approach begins to outperform the other, or if one is consistently dominant, while the max length of 500 allows for a reduced runtime to ensure I can collect enough samples to provide statistically significant results.
                 <br><br>
@@ -1121,7 +1126,7 @@
                 With this pilot, I have excluded compression/decompression memory usage as a test, as my algorithms are not optimal and the are more difficult tests to conduct accurately.
             </p>
             <h4 class="title">Data sets</h4>
-            <p>
+            <p id="pilot-method-data"> 
                 My dataset was collected from the <a href="https://www.ncbi.nlm.nih.gov/">National Center for Biotechnology Information (NCBI)</a>, and consist of the following genomes from the following species:
                 <ul>
                     <li>Shigella (target) - Specifically the serotypes ("subspecies") <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000006925.2/">flexneri 2a str.301</a> and <a href="https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_020807325.1/"> sp. FC6507</a></li>
@@ -1135,7 +1140,7 @@
                 For reference-free, E. coli will not be used, and thus both algorithms will only be compressing Shigella, to ensure that our independent variables stay the same between tests.
             </p>
             <h4 class="title">Statistical analysis</h4>
-            <div>
+            <div id="pilot-method-stats">
 
                 <!--METRICS TTESTS AND MORE-->
                 For analysing the result from my study, I will be using a set one-tailed independent t-test to determine the mean difference between the two approaches, and if it is an increase or decrease, for each metric at each length of sequence.
@@ -1156,72 +1161,72 @@
                 <tr>
                     <th>LZSS Algorithm</th>
                     <th>Sequence Length</th>
-                    <th>Compression Ratio (%)</th>
-                    <th>Compression Speed (sec)</th>
-                    <th>Decompression Speed (sec)</th>
+                    <th>Compression Ratio (before/after)</th>
+                    <th>Compression Speed (us)</th>
+                    <th>Decompression Speed (us)</th>
                 </tr>
-                <tr>
-                    <td rowspan="5">Reference-free</td>
-                    <td>50</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>100</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>150</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>250</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>                
-                <tr>
-                    <td>500</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                </tr>
-
                 <tr>
                     <td rowspan="5">Reference-based</td>
                     <td>50</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>0.66667</td>
+                    <td>1728.422222</td>
+                    <td>746.8222222</td>
                 </tr>
                 <tr>
                     <td>100</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>0.66667</td>
+                    <td>3494.177778</td>
+                    <td>1445.933333</td>
                 </tr>
                 <tr>
                     <td>150</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>0.66667</td>
+                    <td>4928.666667</td>
+                    <td>2151.488889</td>
                 </tr>
                 <tr>
                     <td>250</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>0.66667</td>
+                    <td>7721.533333</td>
+                    <td>3552.488889</td>
                 </tr>                
                 <tr>
                     <td>500</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>0.671132</td>
+                    <td>14863.95556</td>
+                    <td>7091.666667</td>
+                </tr>
+
+                <tr>
+                    <td rowspan="5">Reference-free</td>
+                    <td>50</td>
+                    <td>0.658065</td>
+                    <td>1697.911111</td>
+                    <td>764.4666667</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>0.655844</td>
+                    <td>3255.777778</td>
+                    <td>1461.377778</td>
+                </tr>
+                <tr>
+                    <td>150</td>
+                    <td>0.635789</td>
+                    <td>4667.377778</td>
+                    <td>2260.022222</td>
+                </tr>
+                <tr>
+                    <td>250</td>
+                    <td>0.651948</td>
+                    <td>7318.288889</td>
+                    <td>3697.4</td>
+                </tr>                
+                <tr>
+                    <td>500</td>
+                    <td>0.643545</td>
+                    <td>14728.33333</td>
+                    <td>7396.088889</td>
                 </tr>
 
             </table>
@@ -1231,43 +1236,74 @@
                 <tr>
                     <th></th>
                     <th>Sequence Length</th>
-                    <th>Compression Ratio (%)</th>
-                    <th>Compression Speed (sec)</th>
-                    <th>Decompression Speed (sec)</th>
+                    <th>Compression Ratio (before/after)</th>
+                    <th>Compression Speed (us)</th>
+                    <th>Decompression Speed (us)</th>
                 </tr>
                 <tr>
-                    <td rowspan="5">Mean differences</td>
+                    <td rowspan="5">t Critical</td>
                     <td>50</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1.680229977
+                    </td>
+                    <td>1.673564906
+                    </td>
+                    <td>1.662354029
+                    </td>
                 </tr>
                 <tr>
                     <td>100</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1.680229977
+                    </td>
+                    <td>1.662557349
+                    </td>
+                    <td>1.663649184
+                    </td>
                 </tr>
                 <tr>
                     <td>150</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1.680229977
+                    </td>
+                    <td>1.662354029
+                    </td>
+                    <td>1.663420175
+                    </td>
                 </tr>
                 <tr>
                     <td>250</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1.680229977
+                    </td>
+                    <td>1.662557349
+                    </td>
+                    <td>1.662557349
+                    </td>
                 </tr>                
                 <tr>
                     <td>500</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
+                    <td>1.680229977
+                    </td>
+                    <td>1.663420175
+                    </td>
+                    <td>1.662354029
+                    </td>
                 </tr>
             </table>
+            <p><a href="../other/Files/Pilot_results.xlsx" download>Full results can be downloaded here (xlsx)</a></p>
         </div>
+
+        <h5 class="title">Analysis</h5>
+        <p id="pilot-results-analysis">
+            I will avoid fully analysing my results due to a few flaws in my data that I can take onto my dissertation.
+            <br><br>
+            Firstly, for reference-based, sequence lengths 50-250 didnt seem to find any references despite a sutible reference sequence. I've determined this as my implimentation encodes uncompressed data at 2bits/base, and compressed data as 3bits/per base; compression ratio is calculated as bits before / bits after and the consistent result of 0.66667 is equal to 2/3 (when rounded).
+            <br>
+            This may be due to how im filling the search buffer, as my reference encoding for offset doesnt allow for negative values (or references infront of the current position through the target), which causes a fair amount of inefficiency, however this isnt a particularly difficult change to make. As sequence length reaches 500, we do see some change in the ratio value, indicating that references are being made, but at the cost of a longer final sequence.
+            <br>
+            <br>
+            Second, all my compression ratios are worse off than they started, essentially the file has increased in size, although this might be due to the shortness of the sequences tested, and/or the aforementioned 2 vs 3 bits per base encoding, with references costing 20 bits. In order to confirm this, tests on larger sequences are required and will be carried out as I work towards my final dissertation.
+            <br><br>
+            As expected compression/decompression speed did decrease as sequence length increased, with reference-based being slightly slower when it comes to compression speed and slightly faster at decompression, though not significantly so. However, due to the previously discussed issues, especially the potential of no references being found with this approach across all 45 runs for most length tests, it would be wrong to draw conclusive results.  
+        </p>
+
         
     </section>
 
